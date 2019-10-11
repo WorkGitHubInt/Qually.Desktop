@@ -1,0 +1,221 @@
+﻿<Page x:Class="QuallyFlash.StatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:QuallyFlash"
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="StatusPage">
+    <Page.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}"/>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:AccTypeToStringConverter x:Key="TypeToStringConverter"/>
+        <local:AccTypeToContentConverter x:Key="TypeToContentConverter"/>
+        <local:BoolToTickConverter x:Key="BoolToTickConverter"/>
+        <local:MonthToYearsConverter x:Key="MonthToYearsConverter"/>
+        <local:SexConverter x:Key="SexConverter"/>
+        <local:BoolToTemplateConverter x:Key="BoolToTemplate"/>
+        <local:SchemeTypeToEnableConverter x:Key="SchemeToEnable"/>
+    </Page.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="221*"/>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="Margin" Value="0,0,0,5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}Имя: {0} {1}" FallbackValue="Имя:">
+                                <Binding Path="Account.Login"/>
+                                <Binding Path="Account.Type" Converter="{StaticResource TypeToStringConverter}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Text="{Binding Account.OR.Amount, FallbackValue=ОР:, StringFormat=ОР: {0}}"/>
+                    <TextBlock Text="{Binding Account.Equ, FallbackValue=Экю:, StringFormat=Экю: {0}}"/>
+                    <TextBlock Text="{Binding Account.Hay.Amount, FallbackValue=Фураж:, StringFormat=Фураж: {0}}"/>
+                    <TextBlock Text="{Binding Account.Oat.Amount, FallbackValue=Овес:, StringFormat=Овес: {0}}"/>
+                    <TextBlock Text="{Binding Account.Carrot.Amount, FallbackValue=Морковь:, StringFormat=Морковь: {0}}"/>
+                    <TextBlock Text="{Binding Account.Mash.Amount, FallbackValue=Смесь:, StringFormat=Смесь: {0}}"/>
+                </StackPanel>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}">
+                                <Binding Path="Account.MainProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                                <Binding Path="Account.MainProductToSell.Amount" FallbackValue=""/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}">
+                                <Binding Path="Account.SubProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                                <Binding Path="Account.SubProductToSell.Amount" FallbackValue=""/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Text="{Binding Account.Settings.SchemeType, StringFormat=Схема: {0}, Converter={StaticResource EnumToDescConverter}, FallbackValue=Схема:}"/>
+                    <TextBlock Text="{Binding Account.Settings.LimitType, StringFormat=Ограничение: {0}, Converter={StaticResource EnumToDescConverter}, FallbackValue=Ограничение:}"/>
+                    <TextBlock Text="{Binding Account.Settings.HealthEdge, StringFormat=Ограничение здоровья: {0}, FallbackValue=Ограничение здоровья:}"/>
+                    <TextBlock Foreground="Wheat" Text="{Binding Account.HorsesCount, FallbackValue=Кол-во лошадей:, StringFormat=Кол-во лошадей: {0}}"/>
+                    <TextBlock Foreground="Wheat" Text="{Binding Account.CurrentValue, FallbackValue=Кол-во:, StringFormat=Кол-во: {0}}"/>
+                </StackPanel>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock Text="{Binding Account.Settings.Specialization, StringFormat=Специализация: {0}, Converter={StaticResource EnumToDescConverter}, FallbackValue=Специализация:}"/>
+                    <TextBlock Text="{Binding Account.Settings.Amunition, StringFormat=Амуниция: {0}*, FallbackValue=Амуниция:}"/>
+                    <TextBlock Text="{Binding Account.SaddleToShow.Amount, StringFormat=Седла: {0}, FallbackValue=Седла:}"/>
+                    <TextBlock Text="{Binding Account.BridleToShow.Amount, StringFormat=Уздечки: {0}, FallbackValue=Уздечки:}"/>
+                    <TextBlock Text="{Binding Account.RampToShow.Amount, StringFormat=Вальтрапы: {0}, FallbackValue=Вальтрапы:}"/>
+                    <TextBlock Text="{Binding Account.Forehead.Amount, StringFormat=Налобники: {0}, FallbackValue=Налобники:}"/>
+                    <TextBlock Text="{Binding Account.Bandages.Amount, StringFormat=Бинты: {0}, FallbackValue=Бинты:}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Grid HorizontalAlignment="Center" Grid.Row="1" Margin="78,0" Width="632">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="65*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Height="180" Margin="0,15">
+                <Border Margin="5,0">
+                    <Grid Margin="5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Margin" Value="0,0,0,5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Name, StringFormat=Имя: {0}, FallbackValue=Имя:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Id, StringFormat=ID: {0}, FallbackValue=ID:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Age, StringFormat=Возраст: {0}, FallbackValue=Возраст:, Converter={StaticResource MonthToYearsConverter}}"/>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Energy, StringFormat=Энергия: {0}, FallbackValue=Энергия:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Health, StringFormat=Здоровье: {0}, FallbackValue=Здоровье:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.Time, StringFormat=Время: \{0:h\\:mm\}, FallbackValue=Время:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.NLNP, StringFormat=НЛНП: {0}, FallbackValue=НЛНП:}"/>
+                            <TextBlock Foreground="Wheat" Text="{Binding Account.MaleHorse.Status, FallbackValue=Статус:, StringFormat=Статус: {0}}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillTotal, StringFormat=Навыки: {0}, FallbackValue=Навыки:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillVitality, StringFormat=Выносливость: {0}, FallbackValue=Выносливость:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillSpeed, StringFormat=Скорость: {0}, FallbackValue=Скорость:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillDressage, StringFormat=Выездка: {0}, FallbackValue=Выездка:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillGalop, StringFormat=Галоп: {0}, FallbackValue=Галоп:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillLynx, StringFormat=Рысь: {0}, FallbackValue=Рысь:}"/>
+                            <TextBlock Text="{Binding Account.MaleHorse.SkillJump, StringFormat=Прыжки: {0}, FallbackValue=Прыжки:}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Height="180" Margin="0,15">
+                <ListBox ItemsSource="{Binding Account.MaleHorse.Scheme}" Height="180" Margin="0,0,5,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Grid.Row="2" Margin="78,0" Width="632">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="65*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Height="180">
+                <Border Margin="5,0">
+                    <Grid Margin="5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Margin" Value="0,0,0,5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Name, StringFormat=Имя: {0}, FallbackValue=Имя:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Id, StringFormat=ID: {0}, FallbackValue=ID:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Age, StringFormat=Возраст: {0}, FallbackValue=Возраст:, Converter={StaticResource MonthToYearsConverter}}"/>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Energy, StringFormat=Энергия: {0}, FallbackValue=Энергия:}"/>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Health, StringFormat=Здоровье: {0}, FallbackValue=Здоровье:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.Time, StringFormat=Время: \{0:h\\:mm\}, FallbackValue=Время:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.NLNP, StringFormat=НЛНП: {0}, FallbackValue=НЛНП:}"/>
+                            <TextBlock Foreground="Wheat" Text="{Binding Account.FemaleHorse.Status, FallbackValue=Статус:, StringFormat=Статус: {0}}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillTotal, StringFormat=Навыки: {0}, FallbackValue=Навыки:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillVitality, StringFormat=Выносливость: {0}, FallbackValue=Выносливость:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillSpeed, StringFormat=Скорость: {0}, FallbackValue=Скорость:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillDressage, StringFormat=Выездка: {0}, FallbackValue=Выездка:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillGalop, StringFormat=Галоп: {0}, FallbackValue=Галоп:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillLynx, StringFormat=Рысь: {0}, FallbackValue=Рысь:}"/>
+                            <TextBlock Text="{Binding Account.FemaleHorse.SkillJump, StringFormat=Прыжки: {0}, FallbackValue=Прыжки:}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Height="180">
+                <ListBox ItemsSource="{Binding Account.FemaleHorse.Scheme}" Height="180" Margin="0,0,5,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="174,0" Width="440">
+            <Button Command="{Binding StartCommand}" Margin="5,0" Content="Запуск" Width="100"/>
+            <Button Command="{Binding StopCommand}" Margin="5,0" Content="Остановить" Width="100"/>
+            <Button IsEnabled="{Binding Account.Settings.SchemeType, Converter={StaticResource SchemeToEnable}}" Command="{Binding NextHorseCommand}" Content="{Binding Account.NextHorseSex, Converter={StaticResource SexConverter}, FallbackValue=Жер}" Margin="5,0" Width="100"/>
+            <Button Command="{Binding BackCommand}" Margin="5,0" Content="Назад" Width="100"/>
+        </StackPanel>
+    </Grid>
+</Page>
