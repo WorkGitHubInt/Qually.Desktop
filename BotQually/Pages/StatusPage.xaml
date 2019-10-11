@@ -1,0 +1,180 @@
+﻿<Page x:Class="BotQually.StatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BotQually"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="600"
+      Title="StatusPage">
+    <Page.Resources>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:BoolToTickConverter x:Key="BoolToTickConverter"/>
+        <local:AccTypeToStringConverter x:Key="TypeToStringConverter"/>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}"/>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="53*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Accounts.Count, StringFormat=Количество аккаунтов: {0}, FallbackValue=Количество аккаунтов:}"/>
+            <ListBox
+                SelectedItem="{Binding SelectedAccount}"
+                ItemsSource="{Binding Accounts}"
+                Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Login"/>
+                                        <Binding Path="Type" Converter="{StaticResource TypeToStringConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Margin="5,0,0,0" Foreground="Wheat">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Progress"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Border Margin="5" Grid.Column="1">
+            <StackPanel Margin="0,0,0,1">
+                <FrameworkElement.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                <TextBlock Text="{Binding SelectedAccount.Login, StringFormat=Аккаунт: {0}, FallbackValue=Аккаунт:}"/>
+                <TextBlock Text="{Binding SelectedAccount.ProgressFarm, StringFormat=Завод: {0}, FallbackValue=Завод:}"/>
+                <TextBlock Text="{Binding SelectedAccount.Progress, StringFormat=Прогресс: {0:N2}, FallbackValue=Прогресс:}"/>
+                <TextBlock Text="{Binding SelectedAccount.OR.Amount, StringFormat=ОР: {0:N0}, FallbackValue=ОР:}"/>
+                <TextBlock Text="{Binding SelectedAccount.Equ, StringFormat=Экю: {0:N0}, FallbackValue=Экю:}"/>
+                <TextBlock Text="{Binding SelectedAccount.Hay.Amount, StringFormat=Фураж: {0:N0}, FallbackValue=Фураж:}"/>
+                <TextBlock Text="{Binding SelectedAccount.Oat.Amount, StringFormat=Овес: {0:N0}, FallbackValue=Овес:}"/>
+                <TextBlock Text="{Binding SelectedAccount.Shit.Amount, StringFormat=Навоз: {0:N0}, FallbackValue=Навоз:}"/>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Path="SelectedAccount.MainProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                            <Binding Path="SelectedAccount.MainProductToSell.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Path="SelectedAccount.SubProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                            <Binding Path="SelectedAccount.SubProductToSell.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1">
+            <Border Margin="5" Grid.Row="1" Height="245">
+                <StackPanel>
+                    <FrameworkElement.Resources>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <TextBlock Text="{Binding RunningCount, StringFormat=Кол-во прогоняемых аккаунтов: {0}, FallbackValue=Кол-во прогоняемых аккаунтов:}"/>
+                    <TextBlock Text="{Binding DoneCount, StringFormat=Кол-во оконченых аккаунтов: {0}, FallbackValue=Кол-во оконченых аккаунтов:}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <Border Margin="5" Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="Уведомления" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                <ListBox
+                    ItemsSource="{Binding Notifications}"
+                    Margin="5,0"
+                    FontSize="10"
+                    Height="205"/>
+            </StackPanel>
+        </Border>
+        <Grid Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button 
+                Command="{Binding StartCommand}"
+                Margin="5,0"
+                Content="Прогнать"/>
+            <Button
+                Command="{Binding StartAllCommand}"
+                Grid.Column="1"
+                Margin="5,0"
+                Content="Прогнать все"/>
+            <Button 
+                Command="{Binding StopCommand}"
+                Grid.Column="2"
+                Margin="5,0"
+                Content="Остановить"/>
+            <Button
+                Command="{Binding StopAllCommand}"
+                Grid.Column="3"
+                Margin="5,0"
+                Content="Остановить все"/>
+            <Button
+                Command="{Binding ReturnCommand}"
+                Grid.Column="4"
+                Margin="5,0"
+                Content="Назад"/>
+        </Grid>
+        <Border Background="#202225" BorderThickness="0,1,0,0" Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid Margin="5,0">
+                <FrameworkElement.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="FontSize" Value="10"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock 
+                        Text="{Binding GlobalSettings.WorkType, Converter={StaticResource EnumToDescConverter}, StringFormat=Режим: {0}, FallbackValue=Режим: да}"/>
+                <TextBlock 
+                        Text="{Binding Status}"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1"/>
+                <TextBlock 
+                        Text="{Binding Version, StringFormat=Версия: {0}, FallbackValue=Версия: 10.0}"
+                        Grid.Column="2"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

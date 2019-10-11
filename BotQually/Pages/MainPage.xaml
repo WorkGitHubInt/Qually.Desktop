@@ -1,0 +1,341 @@
+﻿<Page x:Class="BotQually.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BotQually"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="600"
+      MouseDown="Page_MouseDown"
+      Title="MainPage">
+    <Page.Resources>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:BooleanToVisiblityConverter x:Key="BoolToVisibleConverter"/>
+        <local:AccTypeToStringConverter x:Key="TypeToStringConverter"/>
+        <local:AccTypeToContentConverter x:Key="TypeToContentConverter"/>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Border 
+            local:AnimateSlideInFromLeftProperty.Value="{Binding GlobalSettingsOpen, FallbackValue=False}"
+            Panel.ZIndex="2"
+            Background="#2f3136"
+            Width="0"
+            HorizontalAlignment="Left">
+            <Grid Width="200">
+                <StackPanel Margin="10">
+                    <FrameworkElement.Resources>
+                        <Style TargetType="Separator">
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <CheckBox 
+                        IsChecked="{Binding GlobalSettings.RandomPause}"
+                        Checked="CheckBox_CheckedChanged"
+                        Unchecked="CheckBox_CheckedChanged"
+                        Content="Случайные паузы"/>
+                    <Separator/>
+                    <CheckBox 
+                        IsChecked="{Binding GlobalSettings.ParallelHorse}"
+                        Checked="CheckBox_CheckedChanged"
+                        Unchecked="CheckBox_CheckedChanged"
+                        Content="Параллельные лошади"/>
+                    <Separator/>
+                    <CheckBox
+                        IsChecked="{Binding GlobalSettings.Tray}"
+                        Checked="CheckBox_CheckedChanged"
+                        Unchecked="CheckBox_CheckedChanged"
+                        Content="Сворачивать в трей"/>
+                    <Separator/>
+                    <TextBlock HorizontalAlignment="Center" Text="Сортировка"/>
+                    <ComboBox 
+                        SelectionChanged="ComboBox_SelectionChanged_1"
+                        SelectedValuePath="Tag"
+                        SelectedValue="{Binding GlobalSettings.Sort}">
+                        <ComboBoxItem Tag="age" Content="Возраст"/>
+                        <ComboBoxItem Tag="race" Content="Порода"/>
+                        <ComboBoxItem Tag="nom" Content="Имя"/>
+                        <ComboBoxItem Tag="naissance" Content="Дата рождения"/>
+                        <ComboBoxItem Tag="competence" Content="Навыки"/>
+                        <ComboBoxItem Tag="potentiel-genetique" Content="Генетический потенциал"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Center" Text="Режим работы"/>
+                    <ComboBox 
+                        ItemsSource="{local:EnumValues {x:Type local:WorkType}}"
+                        SelectedValue="{Binding GlobalSettings.WorkType}"
+                        SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Center" Text="Интернет"/>
+                    <ComboBox 
+                        ItemsSource="{local:EnumValues {x:Type local:ClientType}}"
+                        SelectionChanged="ComboBox_SelectionChanged_1"
+                        SelectedValue="{Binding GlobalSettings.ClientType}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="243*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding Accounts.Count, StringFormat=Количество аккаунтов: {0}, FallbackValue=Количество аккаунтов:}"/>
+                    <ListBox 
+                        Grid.Row="1"
+                        SelectedItem="{Binding SelectedAccount}"
+                        ItemsSource="{Binding Accounts}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="5,0,0,0">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="Login"/>
+                                            <Binding Path="Type" Converter="{StaticResource TypeToStringConverter}"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+                <StackPanel VerticalAlignment="Center" Grid.Column="1">
+                    <FrameworkElement.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#595959"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Template" Value="{StaticResource MainButtonTemplate}"/>
+                            <Setter Property="Margin" Value="5,5,5,0"/>
+                            <Setter Property="Height" Value="25"/>
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <Button 
+                        Command="{Binding AddAccCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Margin="5,0,5,0"
+                        Content="Добавить аккаунт"/>
+                    <Button 
+                        Command="{Binding RemoveAccCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Удалить аккаунт"/>
+                    <Button 
+                        Command="{Binding LoginCoCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="{Binding SelectedAccount.Type, Converter={StaticResource TypeToContentConverter}, FallbackValue=Войти в соу}"/>
+                    <Button
+                        Command="{Binding SaveCoAccountCommand}"
+                        Margin="5,5,5,0"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Сохранить соу"/>
+                    <Button 
+                        Command="{Binding SettingsCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Настройки"/>
+                    <Button
+                        Command="{Binding ManagementCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Управление аккаунтом"/>
+                    <Button
+                        Command="{Binding SaveAccCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Сохранить список аккаунтов"/>
+                    <Button
+                        Command="{Binding LoadAccCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="Загрузить список аккаунтов"/>
+                    <Button
+                        Command="{Binding StatusCommand}"
+                        Margin="5"
+                        Content="Открыть статус"/>
+                </StackPanel>
+                <Grid Grid.Column="2">
+                    <Border Grid.ColumnSpan="2">
+                        <StackPanel Margin="5">
+                            <FrameworkElement.Resources>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </FrameworkElement.Resources>
+                            <TextBlock  Text="{Binding SelectedAccount.Login, StringFormat=Имя: {0}, FallbackValue=Имя:}"/>
+                            <TextBlock Text="{Binding SelectedAccount.OR.Amount, StringFormat=ОР: {0:N0}, FallbackValue=ОР:}"/>
+                            <TextBlock Text="{Binding SelectedAccount.Equ, StringFormat=Экю: {0:N0}, FallbackValue=Экю:}"/>
+                            <TextBlock Text="{Binding SelectedAccount.Hay.Amount, StringFormat=Фураж: {0:N0}, FallbackValue=Фураж:}"/>
+                            <TextBlock Text="{Binding SelectedAccount.Oat.Amount, StringFormat=Овес: {0:N0}, FallbackValue=Овес:}"/>
+                            <TextBlock Text="{Binding SelectedAccount.Shit.Amount, StringFormat=Навоз: {0:N0}, FallbackValue=Навоз:}"/>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}">
+                                        <Binding Path="SelectedAccount.MainProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                                        <Binding Path="SelectedAccount.MainProductToSell.Amount" FallbackValue=""/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}">
+                                        <Binding Path="SelectedAccount.SubProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="Пшеница"/>
+                                        <Binding Path="SelectedAccount.SubProductToSell.Amount" FallbackValue=""/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="27*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="39*"/>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    FontSize="14"
+                    Text="{Binding ElementName=FarmList, Path=SelectedItem.Count, StringFormat=Заводы ({0}), FallbackValue=Заводы}"
+                    HorizontalAlignment="Center"/>
+                <ListBox 
+                    x:Name="FarmList"
+                    SelectedItem="{Binding SelectedFarm}"
+                    ItemsSource="{Binding SelectedAccount.Farms}"
+                    Grid.Row="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.AddFarmCommand}"/>
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5,0" VerticalAlignment="Center">
+                    <Button 
+                        Command="{Binding AddFarmCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Content="+"
+                        FontWeight="Bold"
+                        FontSize="18"/>
+                    <Button
+                        Command="{Binding RemoveFarmCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Grid.Column="1"
+                        Content="-"
+                        FontWeight="Bold"
+                        FontSize="18"/>
+                    <Button
+                        Command="{Binding ClearFarmCommand}"
+                        IsEnabled="{Binding NotLoading}"
+                        Grid.Column="2"
+                        Content="↺"
+                        FontSize="18"/>
+                </StackPanel>
+                <TextBlock 
+                    Grid.Column="2"
+                    Text="Очередь"
+                    FontSize="14"
+                    HorizontalAlignment="Center"/>
+                <ListBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    SelectedItem="{Binding SelectedQueFarm}"
+                    ItemsSource="{Binding SelectedAccount.Queue}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.RemoveFarmCommand}"/>
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+            <Grid Margin="5" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Command="{Binding StartCommand}"
+                    IsEnabled="{Binding NotLoading}"
+                    Margin="5,0"
+                    Content="Прогнать"/>
+                <Button
+                    Command="{Binding StartAllCommand}"
+                    IsEnabled="{Binding NotLoading}"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Content="Прогнать все"/>
+                <Button 
+                    Command="{Binding StopCommand}"
+                    IsEnabled="{Binding NotLoading}"
+                    Grid.Column="2"
+                    Margin="5,0"
+                    Content="Остановить"/>
+                <Button
+                    Command="{Binding StopAllCommand}"
+                    IsEnabled="{Binding NotLoading}"
+                    Grid.Column="3"
+                    Margin="5,0"
+                    Content="Остановить все"/>
+            </Grid>
+            <Border Background="#202225" BorderThickness="0,1,0,0" Grid.Row="3">
+                <Grid Margin="5,0">
+                    <FrameworkElement.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="10"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding GlobalSettings.WorkType, Converter={StaticResource EnumToDescConverter}, StringFormat=Режим: {0}, FallbackValue=Режим: да}"/>
+                    <TextBlock 
+                        Text="{Binding Status}"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1"/>
+                    <TextBlock 
+                        Text="{Binding Version, StringFormat=Версия: {0}, FallbackValue=Версия: 10.0}"
+                        Grid.Column="2"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
