@@ -1,0 +1,165 @@
+﻿<Window x:Class="AccountHolder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountHolder"
+        mc:Ignorable="d"
+        Title="{Binding Version2, StringFormat=AccountHolder {0}}"
+        Height="450"
+        Width="830"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="ListViewItemStyle1" TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="CustomTemplate">
+            <TextBlock FontSize="12" HorizontalAlignment="Center"/>
+        </DataTemplate>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+    </Window.Resources>
+    <Grid Margin="5,5,5,15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="385*"/>
+            <ColumnDefinition Width="196*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button 
+                Command="{Binding CreateNewListCommand}"
+                Content="Создать новый список"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding AddListCommand}"
+                Grid.Row="1"
+                Content="Добавить список"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding LoadListCommand}"
+                Grid.Row="2"
+                Content="Загрузить список"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding TrainListCommand}"
+                Grid.Row="3"
+                Content="Пройти обучение"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding GoListCommand}"
+                Grid.Row="4"
+                Content="Прогнать список"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding DeleteListCommand}"
+                Grid.Row="5"
+                Content="Удалить список"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="37*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Text="{Binding AccList.Count, StringFormat=Количество аккаунтов: {0}, FallbackValue=Количество аккаунтов: }"
+                FontSize="14"/>
+            <Button
+                Command="{Binding DeleteAccCommand}"
+                Content="Удалить аккаунт"
+                HorizontalAlignment="Right"
+                IsEnabled="{Binding NotWorking}"/>
+            <ListView 
+                Grid.Row="1"
+                ItemsSource="{Binding AccList}"
+                SelectedItem="{Binding SelectedAccount}"
+                IsEnabled="{Binding NotWorking}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn 
+                            DisplayMemberBinding="{Binding Login}"
+                            Header="Логин"
+                            Width="120"/>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Password}"
+                            Header="Пароль"
+                            Width="120"/>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Days}"
+                            Header="Стаж"
+                            Width="70"/>
+                        <GridViewColumn 
+                            DisplayMemberBinding="{Binding Tutorial}"
+                            Header="Обучение"
+                            Width="70"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Статус" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock 
+                Grid.Row="1"
+                Text="{Binding FileName, StringFormat=Имя файла: {0}, FallbackValue=Имя файла:}"/>
+            <TextBlock 
+                Grid.Row="2"
+                Text="{Binding Count, StringFormat=Аккаунт: {0}, FallbackValue=Аккаунт:}"/>
+            <TextBlock
+                Grid.Row="3"
+                Text="{Binding SelectedAccount.Progress, StringFormat=Статус: {0}, FallbackValue=Статус:}"/>
+            <StackPanel Grid.Row="4">
+                <TextBlock Text="Добавить аккаунт" FontSize="16" HorizontalAlignment="Center"/>
+                <TextBlock Text="Логин" HorizontalAlignment="Center" Margin="57,0,57,0"/>
+                <TextBox Margin="20,0" Height="23" Text="{Binding Login}" TextWrapping="Wrap" BorderThickness="2"/>
+                <TextBlock Text="Пароль" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBox Margin="20,0" Height="23" Text="{Binding Password}" TextWrapping="Wrap" BorderThickness="2"/>
+                <Button
+                    Command="{Binding AddAccCommand}"
+                    Content="Добавить"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Height="30"
+                    Margin="0,10,0,0"
+                    IsEnabled="{Binding NotWorking}"/>
+                <TextBlock Text="ID Золотого яблока" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" Margin="20,0" Height="23" Text="{Binding GoldenApple}" TextWrapping="Wrap" BorderThickness="2"/>
+            </StackPanel>
+            <TextBlock
+                Grid.Row="5"
+                Text="Сервер"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"/>
+            <ComboBox Margin="30,0" Grid.Row="6" VerticalAlignment="Bottom"
+                ItemsSource="{local:EnumValues {x:Type local:Server}}"
+                SelectedItem="{Binding SelectedServer}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>
