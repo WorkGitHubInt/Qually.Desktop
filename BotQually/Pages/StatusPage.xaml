@@ -1,0 +1,270 @@
+﻿<Page x:Class="BotQually.StatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BotQually"
+      xmlns:res="clr-namespace:BotQually.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="600"
+      Title="StatusPage">
+    <Page.Resources>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:BoolToTickConverter x:Key="BoolToTickConverter"/>
+        <local:AccTypeToStringConverter x:Key="TypeToStringConverter"/>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}"/>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="53*"/>
+            </Grid.RowDefinitions>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Source="{x:Static res:Resources.AccountNum}"/>
+                        <Binding Path="Accounts.Count"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <ListBox
+                SelectedItem="{Binding SelectedAccount}"
+                ItemsSource="{Binding Accounts}"
+                Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Login"/>
+                                        <Binding Path="Type" Converter="{StaticResource TypeToStringConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Margin="5,0,0,0" Foreground="Wheat">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Progress"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Border Margin="5" Grid.Column="1">
+            <StackPanel Margin="0,0,0,1">
+                <FrameworkElement.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageAccountText}"/>
+                            <Binding Path="SelectedAccount.Login" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageFarmText}"/>
+                            <Binding Path="SelectedAccount.ProgressFarm" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageProgressText}"/>
+                            <Binding Path="SelectedAccount.Progress" FallbackValue="" StringFormat="0:N2"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageORText}"/>
+                            <Binding Path="SelectedAccount.OR.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageEquText}"/>
+                            <Binding Path="SelectedAccount.Equ" FallbackValue="" StringFormat="0:N0"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageHayText}"/>
+                            <Binding Path="SelectedAccount.Hay.Amount" FallbackValue="" StringFormat="0:N0"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageOatText}"/>
+                            <Binding Path="SelectedAccount.Oat.Amount" FallbackValue="" StringFormat="N:N0"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.StatusPageShitText}"/>
+                            <Binding Path="SelectedAccount.Shit.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Path="SelectedAccount.MainProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="{x:Static res:Resources.Wheat}"/>
+                            <Binding Path="SelectedAccount.MainProductToSell.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Path="SelectedAccount.SubProductToSell.Type" Converter="{StaticResource EnumToDescConverter}" FallbackValue="{x:Static res:Resources.Wheat}"/>
+                            <Binding Path="SelectedAccount.SubProductToSell.Amount" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1">
+            <Border Margin="5" Grid.Row="1" Height="245">
+                <StackPanel>
+                    <FrameworkElement.Resources>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}">
+                                <Binding Source="{x:Static res:Resources.StatusPageWorkingAccsText}"/>
+                                <Binding Path="RunningCount" FallbackValue=""/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}">
+                                <Binding Source="{x:Static res:Resources.StatusPageDoneAccsText}"/>
+                                <Binding Path="DoneCount" FallbackValue=""/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <Border Margin="5" Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="{x:Static res:Resources.StatusPageNotificationsText}" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                <ListBox
+                    ItemsSource="{Binding Notifications}"
+                    Margin="5,0"
+                    FontSize="10"
+                    Height="205"/>
+            </StackPanel>
+        </Border>
+        <Grid Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button 
+                Command="{Binding StartCommand}"
+                Margin="5,0"
+                Content="{x:Static res:Resources.MainPageStartBtn}"/>
+            <Button
+                Command="{Binding StartAllCommand}"
+                Grid.Column="1"
+                Margin="5,0"
+                Content="{x:Static res:Resources.MainPageStartAllBtn}"/>
+            <Button 
+                Command="{Binding StopCommand}"
+                Grid.Column="2"
+                Margin="5,0"
+                Content="{x:Static res:Resources.MainPageStopBtn}"/>
+            <Button
+                Command="{Binding StopAllCommand}"
+                Grid.Column="3"
+                Margin="5,0"
+                Content="{x:Static res:Resources.MainPageStopAllBtn}"/>
+            <Button
+                Command="{Binding ReturnCommand}"
+                Grid.Column="4"
+                Margin="5,0"
+                Content="{x:Static res:Resources.StatusPageReturnBtn}"/>
+        </Grid>
+        <Border Background="#202225" BorderThickness="0,1,0,0" Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid Margin="5,0">
+                <FrameworkElement.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="FontSize" Value="10"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.MainPageModeText}"/>
+                            <Binding Path="GlobalSettings.WorkType" Converter="{StaticResource EnumToDescConverter}" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock 
+                        Text="{Binding Status}"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1"/>
+                <TextBlock 
+                        Grid.Column="2">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}: {1}">
+                            <Binding Source="{x:Static res:Resources.MainPageVersionText}"/>
+                            <Binding Path="Version" FallbackValue=""/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

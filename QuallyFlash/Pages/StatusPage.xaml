@@ -1,0 +1,537 @@
+﻿<Page x:Class="QuallyFlash.StatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:QuallyFlash"
+      xmlns:res="clr-namespace:QuallyFlash.Properties"
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="StatusPage">
+    <Page.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}"/>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:AccTypeToStringConverter x:Key="TypeToStringConverter"/>
+        <local:AccTypeToContentConverter x:Key="TypeToContentConverter"/>
+        <local:BoolToTickConverter x:Key="BoolToTickConverter"/>
+        <local:MonthToYearsConverter x:Key="MonthToYearsConverter"/>
+        <local:SexConverter x:Key="SexConverter"/>
+        <local:BoolToTemplateConverter x:Key="BoolToTemplate"/>
+        <local:SchemeTypeToEnableConverter x:Key="SchemeToEnable"/>
+    </Page.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="221*"/>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="Margin" Value="0,0,0,5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1} {2}" FallbackValue="{x:Static res:Resources.MainPageNameText}">
+                                <Binding Source="{x:Static res:Resources.MainPageNameText}"/>
+                                <Binding Path="Account.Login"/>
+                                <Binding Path="Account.Type" Converter="{StaticResource TypeToStringConverter}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageAPText}">
+                                <Binding Source="{x:Static res:Resources.MainPageAPText}"/>
+                                <Binding Path="Account.OR.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageEquText}">
+                                <Binding Source="{x:Static res:Resources.MainPageEquText}"/>
+                                <Binding Path="Account.Equ"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageHayText}">
+                                <Binding Source="{x:Static res:Resources.MainPageHayText}"/>
+                                <Binding Path="Account.Hay.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageOatText}">
+                                <Binding Source="{x:Static res:Resources.MainPageOatText}"/>
+                                <Binding Path="Account.Oat.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageCarrotText}">
+                                <Binding Source="{x:Static res:Resources.MainPageCarrotText}"/>
+                                <Binding Path="Account.Carrot.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageMeshText}">
+                                <Binding Source="{x:Static res:Resources.MainPageMeshText}"/>
+                                <Binding Path="Account.Mash.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.Wheat}">
+                                <Binding Path="Account.MainProductToSell.Type" Converter="{StaticResource EnumToDescConverter}"/>
+                                <Binding Path="Account.MainProductToSell.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.Wheat}">
+                                <Binding Path="Account.SubProductToSell.Type" Converter="{StaticResource EnumToDescConverter}"/>
+                                <Binding Path="Account.SubProductToSell.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageSchemeText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageSchemeText}"/>
+                                <Binding Path="Account.Settings.SchemeType" Converter="{StaticResource EnumToDescConverter}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageLimitText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageLimitText}"/>
+                                <Binding Path="Account.Settings.LimitType" Converter="{StaticResource EnumToDescConverter}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageLimitHealthText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageLimitHealthText}"/>
+                                <Binding Path="Account.Settings.HealthEdge"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Foreground="Wheat">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageAmountHorsesText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageAmountHorsesText}"/>
+                                <Binding Path="Account.HorsesCount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Foreground="Wheat">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageAmount}">
+                                <Binding Source="{x:Static res:Resources.StatusPageAmount}"/>
+                                <Binding Path="Account.CurrentValue"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="5" MinWidth="200">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageSpecializationText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageSpecializationText}"/>
+                                <Binding Path="Account.Settings.Specialization" Converter="{StaticResource EnumToDescConverter}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageAmunitionText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageAmunitionText}"/>
+                                <Binding Path="Account.Settings.Amunition"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageSadleText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageSadleText}"/>
+                                <Binding Path="Account.SaddleToShow.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageBridleText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageBridleText}"/>
+                                <Binding Path="Account.BridleToShow.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageRampText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageRampText}"/>
+                                <Binding Path="Account.RampToShow.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageForeheadText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageForeheadText}"/>
+                                <Binding Path="Account.Forehead.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusPageBandagesText}">
+                                <Binding Source="{x:Static res:Resources.StatusPageBandagesText}"/>
+                                <Binding Path="Account.Bandages.Amount"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Grid HorizontalAlignment="Center" Grid.Row="1" Margin="78,0" Width="632">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="65*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Height="180" Margin="0,15">
+                <Border Margin="5,0">
+                    <Grid Margin="5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Margin" Value="0,0,0,5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageHorseNameText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageHorseNameText}"/>
+                                        <Binding Path="Account.MaleHorse.Name"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock 
+                                Text="{Binding Account.MaleHorse.Id, StringFormat=ID: {0}, FallbackValue=ID:}"/>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageAgeText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageAgeText}"/>
+                                        <Binding Path="Account.MaleHorse.Age" Converter="{StaticResource MonthToYearsConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageEnergyText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageEnergyText}"/>
+                                        <Binding Path="Account.MaleHorse.Energy"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageHealthText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageHealthText}"/>
+                                        <Binding Path="Account.MaleHorse.Health"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1:hh\:mm}" FallbackValue="{x:Static res:Resources.MainPageTimeText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageTimeText}"/>
+                                        <Binding Path="Account.MaleHorse.Time"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageNLNPText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageNLNPText}"/>
+                                        <Binding Path="Account.MaleHorse.NLNP"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Foreground="Wheat">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageStatusText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageStatusText}"/>
+                                        <Binding Path="Account.MaleHorse.Status"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageSkillsText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageSkillsText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillTotal"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageVitalityText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageVitalityText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillVitality"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageSpeedText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageSpeedText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillSpeed"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageGoText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageGoText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillDressage"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageGalopText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageGalopText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillGalop"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageLynxText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageLynxText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillLynx"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageJumpText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageJumpText}"/>
+                                        <Binding Path="Account.MaleHorse.SkillJump"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Height="180" Margin="0,15">
+                <ListBox ItemsSource="{Binding Account.MaleHorse.Scheme}" Height="180" Margin="0,0,5,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Grid.Row="2" Margin="78,0" Width="632">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="65*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Height="180">
+                <Border Margin="5,0">
+                    <Grid Margin="5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MainWhiteText}">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Margin" Value="0,0,0,5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageHorseNameText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageHorseNameText}"/>
+                                        <Binding Path="Account.FemaleHorse.Name"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock 
+                                Text="{Binding Account.FemaleHorse.Id, StringFormat=ID: {0}, FallbackValue=ID:}"/>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageAgeText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageAgeText}"/>
+                                        <Binding Path="Account.FemaleHorse.Age" Converter="{StaticResource MonthToYearsConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageEnergyText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageEnergyText}"/>
+                                        <Binding Path="Account.FemaleHorse.Energy"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageHealthText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageHealthText}"/>
+                                        <Binding Path="Account.FemaleHorse.Health"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1:hh\:mm}" FallbackValue="{x:Static res:Resources.MainPageTimeText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageTimeText}"/>
+                                        <Binding Path="Account.FemaleHorse.Time"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageNLNPText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageNLNPText}"/>
+                                        <Binding Path="Account.FemaleHorse.NLNP"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Foreground="Wheat">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageStatusText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageStatusText}"/>
+                                        <Binding Path="Account.FemaleHorse.Status"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageSkillsText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageSkillsText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillTotal"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageVitalityText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageVitalityText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillVitality"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageSpeedText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageSpeedText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillSpeed"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageGoText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageGoText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillDressage"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageGalopText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageGalopText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillGalop"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageLynxText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageLynxText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillLynx"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.MainPageJumpText}">
+                                        <Binding Source="{x:Static res:Resources.MainPageJumpText}"/>
+                                        <Binding Path="Account.FemaleHorse.SkillJump"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Height="180">
+                <ListBox ItemsSource="{Binding Account.FemaleHorse.Scheme}" Height="180" Margin="0,0,5,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="IsDone" Converter="{StaticResource BoolToTickConverter}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="174,0" Width="440">
+            <Button Command="{Binding StartCommand}" Margin="5,0" Content="{x:Static res:Resources.MainPageStartBtn}" Width="100"/>
+            <Button Command="{Binding StopCommand}" Margin="5,0" Content="{x:Static res:Resources.MainPageStopBtn}" Width="100"/>
+            <Button IsEnabled="{Binding Account.Settings.SchemeType, Converter={StaticResource SchemeToEnable}}" Command="{Binding NextHorseCommand}" Content="{Binding Account.NextHorseSex, Converter={StaticResource SexConverter}, FallbackValue={x:Static res:Resources.SexMale}}" Margin="5,0" Width="100"/>
+            <Button Command="{Binding BackCommand}" Margin="5,0" Content="{x:Static res:Resources.StatusPageReturnBtn}" Width="100"/>
+        </StackPanel>
+    </Grid>
+</Page>

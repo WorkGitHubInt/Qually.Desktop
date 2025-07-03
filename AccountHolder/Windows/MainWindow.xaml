@@ -1,0 +1,204 @@
+﻿<Window x:Class="AccountHolder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountHolder"
+        xmlns:res="clr-namespace:AccountHolder.Properties"
+        mc:Ignorable="d"
+        Title="{Binding Version2, StringFormat=AccountHolder {0}}"
+        Height="450"
+        Width="830"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="ListViewItemStyle1" TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="CustomTemplate">
+            <TextBlock FontSize="12" HorizontalAlignment="Center"/>
+        </DataTemplate>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+    </Window.Resources>
+    <Grid Margin="5,5,5,15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="385*"/>
+            <ColumnDefinition Width="196*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button 
+                Command="{Binding CreateNewListCommand}"
+                Content="{x:Static res:Resources.CreateNewListBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding AddListCommand}"
+                Grid.Row="1"
+                Content="{x:Static res:Resources.AddListBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding LoadListCommand}"
+                Grid.Row="2"
+                Content="{x:Static res:Resources.LoadListBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding TrainListCommand}"
+                Grid.Row="3"
+                Content="{x:Static res:Resources.StartTutorialBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding GoListCommand}"
+                Grid.Row="4"
+                Content="{x:Static res:Resources.StartListBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+            <Button 
+                Command="{Binding DeleteListCommand}"
+                Grid.Row="5"
+                Content="{x:Static res:Resources.DeleteListBtn}"
+                Margin="50,10,50,10"
+                IsEnabled="{Binding NotWorking}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="37*"/>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="14">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.AmountAccsText}">
+                        <Binding Source="{x:Static res:Resources.AmountAccsText}"/>
+                        <Binding Path="AccList.Count"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <Button
+                Command="{Binding DeleteAccCommand}"
+                Content="{x:Static res:Resources.DeleteAccBtn}"
+                HorizontalAlignment="Right"
+                IsEnabled="{Binding NotWorking}"
+                Padding="3"
+                Margin="0,0,0,3"/>
+            <ListView 
+                Grid.Row="1"
+                ItemsSource="{Binding AccList}"
+                SelectedItem="{Binding SelectedAccount}"
+                IsEnabled="{Binding NotWorking}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn 
+                            DisplayMemberBinding="{Binding Login}"
+                            Header="{x:Static res:Resources.LoginText}"
+                            Width="120"/>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Password}"
+                            Header="{x:Static res:Resources.PasswordText}"
+                            Width="120"/>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Days}"
+                            Header="{x:Static res:Resources.YearsText}"
+                            Width="70"/>
+                        <GridViewColumn 
+                            DisplayMemberBinding="{Binding Tutorial}"
+                            Header="{x:Static res:Resources.TutorialText}"
+                            Width="70"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="205*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="24*"/>
+                <RowDefinition Height="27*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{x:Static res:Resources.StatusText}" HorizontalAlignment="Center" FontSize="16" Margin="75,0" Width="46"/>
+            <TextBlock Grid.Row="1" Margin="5,0,0,0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="Имя файла:">
+                        <Binding Source="{x:Static res:Resources.FileNameText}"/>
+                        <Binding Path="FileName"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock Grid.Row="2" Margin="5,0,0,0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="Аккаунт:">
+                        <Binding Source="{x:Static res:Resources.AccountText}"/>
+                        <Binding Path="Count"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock Grid.Row="3" Margin="5,0,0,0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}" FallbackValue="{x:Static res:Resources.StatusText2}">
+                        <Binding Source="{x:Static res:Resources.StatusText2}"/>
+                        <Binding Path="SelectedAccount.Progress"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <StackPanel Grid.Row="4">
+                <TextBlock Text="{x:Static res:Resources.AddAccountText}" FontSize="16" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Static res:Resources.LoginText}" HorizontalAlignment="Center" Margin="57,0,57,0"/>
+                <TextBox Margin="20,0" Height="23" Text="{Binding Login}" TextWrapping="Wrap" BorderThickness="2"/>
+                <TextBlock Text="{x:Static res:Resources.PasswordText}" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBox Margin="20,0" Height="23" Text="{Binding Password}" TextWrapping="Wrap" BorderThickness="2"/>
+                <Button
+                    Command="{Binding AddAccCommand}"
+                    Content="{x:Static res:Resources.AddBtn}"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Height="30"
+                    Margin="0,10,0,0"
+                    IsEnabled="{Binding NotWorking}"/>
+                <TextBlock Text="{x:Static res:Resources.GoldenAppleText}" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBox PreviewTextInput="NumberValidationTextBox" Margin="20,0" Height="23" Text="{Binding GoldenApple}" TextWrapping="Wrap" BorderThickness="2"/>
+            </StackPanel>
+            <TextBlock
+                Grid.Row="5"
+                Text="{x:Static res:Resources.ServerText}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"/>
+            <ComboBox Margin="30,0" Grid.Row="6" VerticalAlignment="Bottom"
+                ItemsSource="{local:EnumValues {x:Type local:Server}}"
+                SelectedItem="{Binding SelectedServer}" Height="22">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock
+                Grid.Row="7"
+                Text="{x:Static res:Resources.LanguageText}"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <ComboBox Margin="30,0" Grid.Row="8" VerticalAlignment="Bottom"
+                ItemsSource="{local:EnumValues {x:Type local:Localization}}"
+                SelectedItem="{Binding SelectedLocalization}" Height="22" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>

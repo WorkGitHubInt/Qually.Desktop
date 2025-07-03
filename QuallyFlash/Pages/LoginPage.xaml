@@ -1,0 +1,117 @@
+﻿<Page x:Class="QuallyFlash.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuallyFlash"
+      xmlns:res="clr-namespace:QuallyFlash.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="700"
+      Title="LoginPage"
+      Name="Page">
+    <Page.Resources>
+        <Style x:Key="CenterText" TargetType="TextBlock" BasedOn="{StaticResource MainWhiteText}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="MainText" TargetType="TextBlock" BasedOn="{StaticResource CenterText}">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="SubText" TargetType="TextBlock" BasedOn="{StaticResource CenterText}">
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <local:EnumValueToDecriptionConverter x:Key="EnumToDescConverter"/>
+        <local:AccTypeToStringConverter x:Key="AccTypeToString"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,60">
+            <TextBlock Style="{StaticResource MainText}" Text="{x:Static res:Resources.LoginPageLoginText}"/>
+            <TextBox Margin="0,10" Text="{Binding Account.Login}"/>
+            <TextBlock Style="{StaticResource MainText}" Text="{x:Static res:Resources.LoginPagePasswordText}"/>
+            <PasswordBox 
+                GotFocus="PasswordText_GotFocus"
+                Width="160"
+                Name="PasswordText"
+                Margin="0,10"/>
+            <CheckBox 
+                IsChecked="{Binding RememberAcc}"
+                FontSize="14"
+                Content="{x:Static res:Resources.LoginPageRememberChk}"/>
+            <Separator/>
+            <TextBlock Style="{StaticResource MainText}" Text="{x:Static res:Resources.LoginPageProxyText}"/>
+            <TextBlock Style="{StaticResource SubText}" Text="IP" Margin="0,10,0,0"/>
+            <TextBox Text="{Binding ProxyIP}"/>
+            <TextBlock Style="{StaticResource SubText}" Text="{x:Static res:Resources.LoginPageProxyLoginText}"/>
+            <TextBox Text="{Binding ProxyLogin}"/>
+            <TextBlock Style="{StaticResource SubText}" Text="{x:Static res:Resources.LoginPagePasswordText}"/>
+            <TextBox Text="{Binding ProxyPassword}" Margin="0,0,0,5"/>
+            <Separator/>
+            <TextBlock Style="{StaticResource MainText}" Text="{x:Static res:Resources.LoginPageServerText}"/>
+            <ComboBox
+                ItemsSource="{local:EnumValues {x:Type local:Server}}"
+                SelectedItem="{Binding Account.Server}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Mode=OneTime, Converter={StaticResource EnumToDescConverter}}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button 
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding ElementName=Page}"
+                IsEnabled="{Binding LoginIsRunning2}"
+                local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                Margin="0,15,0,0"
+                Height="52"
+                Content="{x:Static res:Resources.LoginPageLoginBtn}"
+                FontSize="16"
+                IsDefault="True"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="30">
+            <TextBlock Style="{StaticResource MainText}" Text="{x:Static res:Resources.LoginPageSavedAccsText}" Margin="0,0,0,10"/>
+            <ListBox
+                x:Name="SavedAccs"
+                SelectedItem="{Binding SelectedAccount}"
+                SelectionChanged="SavedAccs_SelectionChanged"
+                ItemsSource="{Binding SavedAccounts}"
+                Height="310">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Login"/>
+                                        <Binding Path="Type" Converter="{StaticResource AccTypeToString}"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Server, Converter={StaticResource EnumToDescConverter}, Mode=OneTime}" Foreground="Wheat"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Command="{Binding DeleteAccCommand}"
+                    CommandParameter="{Binding SelectedAccount}"
+                    Margin="5"
+                    FontSize="12"
+                    Content="{x:Static res:Resources.LoginPageDeleteBtn}"/>
+                <Button 
+                    Command="{Binding ClearAccCommand}"
+                    Grid.Column="1"
+                    Margin="5"
+                    FontSize="12"
+                    Content="{x:Static res:Resources.LoginPageClearBtn}"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountHorsingStopMessage" xml:space="preserve">
+    <value>The work has been stopped! The limit of coverings for drafts has been exhausted!</value>
+  </data>
+  <data name="AccountMessage1" xml:space="preserve">
+    <value>Cancel EC stay was chosen, but you're not specify your reserved EC box. Select the required settings!</value>
+  </data>
+  <data name="AccountOutOfResourcesMessage1" xml:space="preserve">
+    <value>On this account</value>
+  </data>
+  <data name="AccountOutOfResourcesMessage2" xml:space="preserve">
+    <value>Ecuus has run out and there are no resources to replenish (or not selected for purchase)! Replenish your stocks and click OK</value>
+  </data>
+  <data name="AccountOutOfResourcesMessage3" xml:space="preserve">
+    <value>Fodder has run out and auto-purchase is off! Replenish your stocks and click OK</value>
+  </data>
+  <data name="AccountStopMessage" xml:space="preserve">
+    <value>The work has been stopped! The horse is in the wrong period! The program cannot be started if the horse has 4 months left before giving birth (time when the competition is off)! </value>
+  </data>
+  <data name="AccountStopMessage1" xml:space="preserve">
+    <value>The work has been stopped! You specified your own reserved EC box, but this horse is already in another EC!</value>
+  </data>
+  <data name="AccountStopMessage2" xml:space="preserve">
+    <value>The work has been stopped! Failed to turn off simplified trainings/simplified rides. Turn it off manually and restart program!</value>
+  </data>
+  <data name="Apples" xml:space="preserve">
+    <value>Apples</value>
+  </data>
+  <data name="Carrot" xml:space="preserve">
+    <value>Carrot</value>
+  </data>
+  <data name="CoPostfix" xml:space="preserve">
+    <value>(acc sharing)</value>
+  </data>
+  <data name="FemaleNames" xml:space="preserve">
+    <value>Аарен,Абагэйл,Абагэйль,Аббай,Аббей,Абби,Аббигаель,Аббигаиль,Аббигайл,Аббигаэль,Аббигейл,Аббигейль,Аббигэйл,Абегэйл,Абелла,Абигайл,Абигаэль,Абигол,Абигэйл,Абигэйль,Абиджил,Абичэйл,Абэйгаэль,Абэйгил,Ава,Авалайн,Авалина,Авалон,Авалона,Авелина,Аверилл,Агава,Агата,Аггай,Агджи,Агджая,Агнес,Агнус,Ада,Адайн,Адамайн,Адамина,Адаминна,Адди,Аддисон,Адела,Аделаида,Аделайн,Адели,Аделина,Аделис,Аделисия,Аделия,Аделл,Аделфа,Адель,Адена,Адин,Адисон,Адиссон,Адмиранда,Адоллина,Адреа,Адри,Адриа,Адриан,Адриана,Адрианн,Адрианна,Адрина,Адринна,Адрия,Адэлис,Адэна,Азалия,Азера,Азур,Айон,Айседора,Акация,Алана,Аланис,Аланна,Аланнис,Алвена,Алвилда,Алеа,Алекс,Алекса,Александра,Александреа,Александрина,Александрия,Алексис,Алексия,Алексус,Алеса,Алета,Алетея,Алеша,Аливия,Ализ,Ализон,Аликс,Аликса,Алин,Алис,Алиса,Алисе,Алисия,Алисс,Алисса,Алиссия,Алисья,Алиш,Алиша,Алишия,Алли,Аллин,Аллисса,Алфреда,Альберта,Альвина,Альма,Альмира,Альфа,Амабель,Амалеа,Амали,Амалия,Амалья,Аманда,Амара,Амараллис,Амаранта,Амбер,Амброзин,Амей,Амели,Аметист,Ами,Амая,Амилия,Амис,Анабел,Анабела,Анабелла,Анабель,Анастася,Ангел,Анджела,Анджелика,Анджелиса,Анджелия,Анджелл,Анджеллина,Анджелль,Анди,Андии,Андра,Андреа,Андри,Андриана,Андрина,Андринна,Анета,Анетта,Анж,Анжела,Анжелина,Анис,Анита,Анитра,Анна,Аннабель,Аннали,Аннама,Аннамария,Аннамей,Аннджела,Аннейблинда,Аннейблл,Аннейбт,Аннема,Аннемари,Анникк,Аннис,Аннита,Аннитра,Аннмари,Аннтеа,Ансония,Анстас,Анстей,Анстис,Антия,Антонет,Антония,Арабела,Арабэль,Арден,Арейблл,Арета,Ариана,Арил,Арлайн,Арли,Арлин,Арлина,Арьяна,Арян,Аселайн,Асиа,Асселайн,Асселина,Астон,Астра,Аура,Африка,Африках,Африца,Африцах,Афтон,Аффрика,Аффриках,Аффрица,Аффрицах,Аффтон,Ашли,Ашлая,Ашлий,Ашлин,Ашлинг,Аштон,Бабет,Бабс,Баили,Байб,Байли,Бамби,Банни,Банти,Банш,Барб,Барбара,Барби,Барбра,Баффи,Беа,Беатрис,Беатриса,Беверли,Бевин,Бейли,Бека,Беках,Бекка,Бекки,Беккай,Белинд,Белинда,Белита,Беллатрикс,Беллинда,Бенедикта,Бердайн,Беренгари,Беренгария,Беренис,Берилл,Берлин,Бернадайн,Бернадетт,Бернайс,Бернардайн,Бернетта,Бернис,Берта,Берти,Бертина,Беси,Бесс,Бесси,Бет,Бетани,Бетней,Бетс,Бетси,Бетт,Беттай,Бетти,Беттина,Беттси,Бетэни,Беула,Беулах,Беччи,Би,Бидди,Бижу,Билли,Бинди,Бланда,Бланид,Бланч,Бланчефлеер,Блис,Блонди,Блоссом,Блэр,Блэссинг,Блюбелл,Бобби,Боби,Бони,Бонита,Бонни,Брайди,Бранди,Брандая,Бреда,Бренда,Бренди,Бренна,Бретань,Брет,Бриана,Брианн,Брианна,Бриар,Бридгет,Бриджит,Браяр,Брий,Брилл,Брин,Брина,Бринн,Бринна,Бриония,Бритней,Бриттани,Бриттней,Бриттни,Броук,Брук,Бруклин,Брьяна,Брьянн,Брьянна,Брэди,Брэйди,Брэйнд,Бургунди,Бэб,Бэйлай,Бэйли,Бэлл,Бэль,Бэмби,Бэрри,Валентайн,Валери,Валори,Валэри,Ванесса,Ванна,Вега,Веда,Вел,Велари,Велда,Велма,Вена,Венда,Венди,Вендая,Венера,Венона,Венонна,Верина,Верити,Верна,Вероника,Веста,Ви,Вианн,Вивиан,Вивианн,Вивитт,Вивьян,Виики,Вик,Вики,Викки,Виктория,Вилла,Виллоу,Вилма,Вилфреда,Вина,Винифред,Винни,Винона,Винонна,Винтер,Виола,Виолет,Вирги,Вирджиния,Висдом,Витней,Вонда,Вонни,Врен,Габби,Габи,Габриэлла,Гае,Гаеа,Гай,Гардения,Гармония,Гарнет,Гарраят,Гасси,Гваделупа,Гвен,Гвенда,Гвендолайн,Гвендолин,Гвенет,Гвенит,Гвеннет,Гвеннит,Гейл,Гемма,Гена,Генезис,Генет,Гени,Гениста,Гения,Генна,Генни,Генраетта,Генья,Герти,Гертруда,Гиацинт,Гина,Гислэйн,Гита,Гия,Гленда,Гленис,Гленна,Глинис,Глодуса,Глори,Глориана,Глорианна,Глория,Глэдис,Глэнис,Годива,Голди,Граки,Грет,Грета,Гретта,Гретэль,Гречен,Грир,Грэйс,Гэй,Гэйа,Гэйл,Гэйла,Гэйнор,Давида,Давиния,Давн,Дайанн,Дайзи,Даймонд,Дайна,Дакей,Дакота,Далила,Далинда,Далия,Далки,Далья,Дамиана,Дамия,Дана,Данетт,Дани,Данил,Данилла,Данита,Дания,Данни,Данья,Дапн,Дарби,Дариан,Дарил,Дарин,Дария,Даркей,Дарки,Даркая,Дарла,Дарлайн,Дарлин,Даррил,Даффодил,Дахлия,Деб,Деббай,Дебби,Деббая,Деби,Дебора,Дебра,Дебс,Деван,Девен,Девнет,Девон,Деджа,Дездемона,Дезира,Дезире,Дезири,Деидр,Деидра,Деитра,Дей,Делайла,Делайт,Деланей,Делила,Делинда,Делис,Делисия,Делия,Делла,Делора,Делорис,Делоурс,Делфин,Делфия,Дель,Дельта,Деметрия,Деми,Дена,Дениз,Дениза,Денис,Дениса,Деррил,Деспина,Дестине,Дестини,Детта,Джадин,Джазмайн,Джазмин,Джакалайн,Джакалин,Джаки,Джакинда,Джакки,Джаклайн,Джаклин,Джакобина,Джами,Джана,Джанайн,Джаней,Джанелл,Джанет,Джани,Джанин,Джанис,Джанкис,Джанна,Джаннайн,Джаннет,Джанэль,Джасмин,Джасминн,Джасти,Джастина,Джджи,Джевел,Джезебэл,Джейд,Джейдн,Джейми,Джейн,Джейнка,Джейнл,Джейнлла,Джейнни,Джейнсса,Джейнта,Джейрри,Джекки,Джеклин,Джелисса,Джемима,Джемма,Джен,Джена,Дженел,Дженесса,Джени,Дженис,Дженифер,Дженн,Дженна,Дженни,Дженника,Дженнифер,Джера,Джеральдина,Джери,Джерри,Джес,Джесмайн,Джесса,Джессай,Джессалин,Джессамин,Джессения,Джесси,Джессика,Джетта,Джилберта,Джилбертайн,Джили,Джилл,Джилли,Джиллиан,Джин,Джина,Джиневра,Джинет,Джинетта,Джинжер,Джини,Джинна,Джиннайн,Джинни,Джипси,Джита,Джо,Джоан,Джоандра,Джоанна,Джоаннэ,Джобет,Джодай,Джоджо,Джоди,Джодая,Джодин,Джоел,Джоетта,Джозелин,Джозефа,Джозефина,Джоисс,Джой,Джойс,Джокаста,Джолайн,Джоли,Джолин,Джона,Джонел,Джонет,Джони,Джонна,Джонни,Джордан,Джордана,Джорджа,Джорджиана,Джорджин,Джорджина,Джорджия,Джордин,Джоржет,Джоржи,Джоржинна,Джори,Джоселайн,Джоселин,Джосет,Джоси,Джос,Джосселайн,Джосселин,Джосслин,Джоуни,Джохэйнн,Джоэй,Джуди,Джудая,Джудит,Джули,Джулиана,Джулианн,Джулианна,Джулия,Джулс,Джульета,Джунифер,Джуно,Джустине,Джустис,Джюелл,Джэйд,Джэйда,Джэйден,Джэйдон,Джэйла,Джэйли,Джэйм,Джэйма,Джэйми,Джэйн,Джэйна,Джэйни,Джэклин,Джэн,Джэнни,Джэрри,Джэсси,Джэссика,Ди,Диаманда,Диан,Диана,Дианна,Дивина,Диди,Дикс,Диксай,Дикси,Димпна,Дина,Динн,Динна,Дийана,Длила,Доди,Доллей,Долли,Доллая,Доллии,Долорес,Домина,Доминик,Доминика,Дона,Донелл,Донна,Донолда,Донолдина,Дора,Дорайн,Дорета,Дори,Дорин,Доринда,Доринн,Дорис,Дорита,Дороте,Доротея,Дороти,Доррис,Дорта,Дорти,Дот,Доти,Дотая,Дреа,Дреда,Друсилла,Дуана,Дулс,Дулсия,Дьян,Дэйл,Дэйна,Дэйо,Ева,Ерания,Ербана,Ерлайн,Ерлин,Ерлине,Ернестайн,Ерселла,Ерта,Етта,Жаклин,Жанин,Жасмин,Ждун,Женева,Женевьева,Жонкилия,Жоселин,Жульен,Жюлаят,Жюль,Завана,Заванна,Завия,Зандра,Зара,Зелия,Зелла,Зелма,Зена,Зения,Зибилла,Зови,Зоей,Зои,Зэда,Зэлма,Зэодора,Зэодосия,Ив,Ива,Иван,Ивет,Иви,Ивон,Ивори,Игрэйн,Ида,Идел,Идет,Идета,Идони,Изабелла,Изабель,Изабэль,Иззи,Иззая,Изидора,Ииша,Илайн,Илана,Илин,Илинн,Имогин,Имоджен,Ина,Инди,Индиана,Индиго,Индия,Инноджен,Иоланда,Иолонда,Ирена,Ирис,Ирланд,Ирма,Ирэн,Ислин,Исси,Иша,Йена,Ка,Кади,Каелеа,Каели,Каети,Казандра,Казарин,Какей,Каки,Каланз,Калантия,Калей,Кали,Калида,Калин,Калла,Калта,Камелия,Камея,Камила,Камилла,Камми,Камрин,Кандас,Канди,Кандида,Кандис,Канедс,Каприна,Капукайн,Кара,Карамия,Карей,Карен,Кари,Каризма,Карил,Карин,Карина,Карис,Карисса,Карита,Карла,Карлей,Карли,Карлая,Карлин,Карлиса,Кармела,Кармен,Кармэль,Карнатион,Карог,Карол,Каролин,Каролина,Карон,Карри,Каррин,Касия,Касс,Кассандра,Касси,Кассиа,Кассиди,Кассия,Кат,Катей,Катерин,Кати,Катая,Катлин,Катрайона,Катрин,Катрина,Катэрин,Кевин,Кезиа,Кеила,Кеира,Кеита,Кеития,Кеиша,Кей,Кейднс,Кеймрон,Кейрна,Кейрнза,Кейси,Кейт,Кейтлайн,Кейтлин,Кейтл,Келия,Келкей,Келл,Келлай,Келлей,Келли,Келлая,Келсей,Келси,Келсая,Кенда,Кендол,Кендра,Кензи,Кения,Кенна,Кеннеди,Кера,Керенза,Керенса,Кери,Керра,Керрай,Керри,Керрая,Керстин,Кестрел,Кетрин,Кешия,Киана,Киара ,Киарра,Кибил,Кива,Киви,Кики,Кила,Килан,Килей,Килер,Кили,Килин,Килла,Ким,Кимберлай,Кимберлая,Кимберли,Кимберлин,Кимберлли,Кимбра,Кимми,Кингслей,Кинди,Киндра,Кира,Кирилла,Кирра,Кирстен,Кирсти,Кирстин,Кирстэн,Кисели,Кит,Кити,Китти,Киша,Клайд,Клара,Кларама,Кларамей,Кларет,Кларибэль,Кларинда,Кларити,Клаудия,Клематис,Клеменси,Клементайн,Клементина,Клео,Клер,Клла,Кловер,Клод,Клодайн,Клодет,Клоди,Клотильда,Клэр,Клэрис,Кнби,Коди,Коертней,Коко,Колайн,Колет,Колиин,Колла,Коллайн,Колли,Коллин,Колоер,Колумбина,Комфорт,Конни,Конрадайн,Констанция,Кора,Корайн,Корали,Коралл,Корделия,Кордула,Коретта,Кориандр,Корин,Корина,Коринна,Корнелия,Корона,Коррайн,Корри,Кортней,Крен,Крессида,Кризанта,Крис,Криси,Крисси,Криста,Кристабелла,Кристабель,Кристабэль,Кристай,Кристайн,Кристал,Кристел,Кристен,Кристи,Кристиана,Кристая,Кристин,Кристина,Кристинэ,Кристия,Кристл,Кристобэль,Кристэль,Ксавира,Ксавия,Ксара,Ксена,Ксилина,Ксилия,Куанда,Куанна,Куиана,Куианна,Куилла,Куина,Куини,Куинн,Куинта,Кэй,Кэйки,Кэйла,Кэйлей,Кэйли,Кэйлин,Кэйлинн,Кэйлих,Кэйти,Кэйтлин,Кэйтлинн,Кэнди,Кэндис,Кэролайн,Кэролин,Кэрри,Кэти,Кэтлин,Лав,Лаванда,Лаверн,Лавина,Лавон,Лавоун,Ладжина,Ладонна,Лайза,Лакейша,Лакей,Лакешия,Лакиша,Лакретия,Лаладж,Лалия,Лана,Ланей,Лара,Лареина,Лари,Ларин,Лариса,Ларисса,Ларк,Ларэйн,Латиша,Латонья,Латоя,Лаура,Лаурел,Лаци,Лашей,Лашон,Лашонда,Леа,Леди,Леия,Лейвна,Лейврн,Лекса,Лексайн,Лексей,Лекси,Лексия,Лексус,Ленор,Ленора,Леола,Леон,Леона,Леонора,Леонтайн,Лес,Лесия,Леслей,Лесли,Леслая,Леслии,Лесси,Лета,Летития,Летти,Летха,Ли,Лиана,Лианн,Лианна,Либбей,Либби,Либерти,Ливви,Лида,Лидди,Лидия,Лиз,Лиза,Лизандра,Лизанн,Лизбет,Лиззи,Лиззая,Лии,Лилас,Лили,Лилиан,Лилиана,Лилит,Лилия,Лиллай,Лилли,Лиллиан,Лиллия,Лин,Лин,Линда,Линден,Линди,Линдсеа,Линдсей,Линдси,Линдсая,Линетт,Линзи,Линн,Линна,Линнаеа,Линне,Линнет,Линнетт,Линни,Линсей,Линси,Лира,Лирика,Лис,Лиса,Лисбет,Лисса,Лита,Литон,Литрис,Лих,Лоанда,Логан,Лоис,Лола,Лоли,Лолисия,Лолла,Лолли,Лондон,Лор,Лорайн,Лорей,Лорел,Лорен,Лорена,Лоренсия,Лоресса,Лорет,Лорето,Лоретта,Лори,Лорин,Лоринда,Лорис,Лорисса,Лорита,Лорна,Лоррей,Лорри,Лорэйн,Лорэн,Лотос,Лотт,Лотти,Лоуелла,Лу,Луана,Луанн,Луанна,Луанне,Лувиния,Луг,Луелла,Луиза,Луиса,Лукайл,Лукет,Лукил,Лукинда,Лурд,Лусетта,Льюелла,Лэйдей,Лэйла,Лэйней,Лэйтанья,Лэйташа,Лэйтон,Лэтти,Люкс,Люси,Мабелла,Мабель,Мавис,Маврина,Магдейлн,Магнолия,Мадалин,Мадди,Маддисон,Мадизин,Мадизон,Мадисон,Мадкэн,Мадлин,Мадолайн,Мадонна,Мае,Маеган,Макей,Маки,Маккензи,Маккенна,Маккэйла,Максайн,Максин,Макэйла,Маландра,Малина,Малинда,Малих,Мами,Манди,Маралин,Маргарет,Маргарита,Марго,Маргот,Маргоу,Мардж,Марджери,Марджи,Марджори,Мари,Мариа,Мариабелла,Мариам,Мариамн,Марианна,Марибет,Маривонн,Маригольд,Марил,Марилена,Марилин,Марил,Марилоу,Марилу,Марина,Маринда,Марис,Мариса,Марисса,Мария,Мариянн,Маркей,Марки,Маркая,Марла,Марлей,Марлена,Марли,Марлая,Марлин,Марселин,Марта,Мартса,Марша,Марьянн,Матильда,Матти,Матхильда,Махала,Махалия,Меган,Мед,Мейбл,Мейдлин,Мейдлэйн,Мейкнзи,Мейкнна,Мелайора,Мелани,Мелба,Мелва,Мелинда,Мелиса,Мелисент,Мелисса,Мелия,Мелл,Меллони,Мелодия,Мередит,Мериветэр,Меридет,Мерил,Мерилин,Мерл,Мерла,Мерлин,Меррилин,Меррил,Меррит,Мерседес,Мерсия,Мерфи,Миа,Миган,Мигнон,Мигнонет,Мид,Мидж,Микки,Милдред,Милизент,Милисент,Миллезант,Милли,Миллисент,Милосердая,Мими,Минди,Минни,Мира,Мирабель,Мирайн,Миракл,Миранда,Мириам,Мирна,Миррайн,Мирт,Мирти,Миси,Мисси,Мисти,Мичаела,Мичелайн,Мичел,Мичэйла,Мо,Мод,Модести,Моди,Моира,Мойна,Мойра,Моли,Молли,Мона,Монат,Моника,Мониса,Монна,Монта,Монтана,Мора,Морайн,Морвен,Морган,Моргана,Морген,Мориа,Морин,Моринн,Моулд,Мья,Мэб,Мэг,Мэгги,Мэдж,Мэй,Мэйбеллайн,Мэйбель,Мэйбл,Мэйм,Мэйрдж,Мэйрджори,Мэйси,Мэлори,Мэль,Мэнди,Мэри,Мэриан,Мэрилин,Мэрион,Мэрит,Мюриэл,Награда,Надайн,Надия,Нанни,Нанная,Наоми,Натали,Натил,Натиша,Нева,Невада,Неваех,Нел,Нелда,Нел,Нелла,Нелли,Неллая,Нерайн,Нерисса,Несса,Несси,Нетта,Ниджелия,Ниджелла,Нидия,Никеиша,Никки,Никкоул,Никол,Никола,Николет,Никоул,Нина,Нирвана,Нири,Нита,Ноа,Нова,Ноелин,Ноел,Нола,Нолвен,Нолин,Нона,Нони,Нора,Норей,Норин,Норине,Норма,Ноуа,Нубия,Нэйтали,Нэн,Нэнси,Оанез,Обрей,Обри,Оди,Одра,Одреа,Одри,Океан,Октавия,Олив,Оливет,Оливая,Олин,Оллана,Олли,Оллизон,Оллин,Оллисия,Омега,Ондре,Ондреа,Ондриа,Ондрия,Онеида,Онндреа,Онндрия,Опал,Опалин,Опра,Ора,Орабэль,Орали,Ореол,Ориана,Орла,Орлаг,Орленда,Орна,Орнат,Орхид,Осанна,Осина,Остин,Отом,Оубри,Оуэна,Паджет,Памела,Памила,Панси,Париж,Паркер,Паррис,Патаянс,Патрисия,Патси,Патти,Паттая,Паула,Пегги,Пейтон,Пейдж,Пеймлия,Пеймлла,Пейсли,Пенелопа,Пенелоуп,Пенни,Перл,Перла,Перли,Перонел,Перонэль,Персефон,Пета,Петронелла,Петронэль,Петти,Петула,Петуния,Паяти,Пин,Пион,Пипер,Пиппа,Пис,Питронелла,Плесант,Плисанс,Полет,Полетта,Поли,Полин,Полина,Полли,Поллиана,Поллин,Поппи,Портия,Порш,Посей,Поси,Прайз,Примроуз,Примула,Принцесс,Прис,Присси,Присцилла,Пру,Пруденс,Прунелла,Прю,Пуси,Пэг,Пэгги,Пэйдж,Пэйтон,Пэм,Пэн,Пэт,Равен,Равенна,Радклиф,Раелин,Раккуэль,Ралфина,Ранда,Ранди,Рандая,Рауэна,Рачаэль,Рачел,Рачил,Рачиль,Рашел,Реба,Ребека,Ребекка,Ребеккэйнн,Реваа,Реган,Регана,Реджина,Рей,Рейли,Рейн,Рексана,Рексэйн,Рена,Рени,Ренита,Рета,Риа,Риган,Рика,Рикена,Рики,Рикки,Рикэндра,Рили,Рилли,Рин,Рина,Ринна,Рио,Риплей,Рита,Ричардайн,Ричелл,Ричи,Робби,Робен,Роберта,Робертина,Роби,Робин,Робина,Рован,Роелин,Роз,Роза,Розабэль,Розалин,Розалина,Розалинда,Розамонд,Розамунда,Розан,Розаулин,Розашарн,Розелин,Розенн,Рози,Розинн,Розмари,Розэйн,Раяс,Роксан,Роксана,Роксанна,Рокси,Роксая,Роксэйн,Ромей,Роми,Ромэйн,Рона,Ронда,Рони,Ронит,Роннет,Ронни,Ронолда,Роси,Росинн,Росита,Рослин,Роуз,Роуина,Роуон,Рочел,Рошин,Рубай,Руби,Рубин,Рубина,Рут,Рути,Рхеия,Рхетта,Рхианна,Рхинна,Рхода,Рхона,Рхонда,Рьяна,Рьянн,Рэбека,Рэбекка,Рэйлин,Рэймонд,Рэйн,Рэйчел,Сабелла,Сабина,Сабл,Сабрин,Сабрина,Савана,Саванна,Сади,Сайв,Сал,Салина,Салли,Салоум,Саманта,Сами,Саммер,Самми,Саммая,Санди,Санни,Саншайн,Сапфир,Сара,Саранна,Сарахджин,Сарей,Сариа,Сарина,Сарра,Саффрон,Седар,Сейдж,Сейлна,Секуойя,Селби,Селена,Селеста,Селина,Селма,Сеона,Септембер,Септима,Серена,Серенити,Серина,Серрена,Сесилия,Сесси,Сибил,Сибила,Сибилл,Сибилла,Сидн,Сидней,Сидни,Саял,Саяна,Саянна,Силбер,Силвана,Силви,Силестайн,Сили,Силинда,Силия,Сильвия,Симфония,Синдерелла,Синди,Синна,Синтия,Сиселия,Сисси,Ситлин,Скай,Скарлет,Скарлетт,Скей,Скилар,Скилер,Скоут,Скуилер,Слоан,Солли,Сондра,Соррель,Софи,София,Соффи,Спарроу,Спирит,Спринг,Стакей,Стаки,Стакки,Стар,Старла,Стасия,Стелла,Стеф,Стефани,Стефания,Стиви,Сторм,Стэки,Стэффи,Суеллен,Сузан,Сузанна,Сузи,Суки,Сьерра,Сью,Сьюзен,Сьюзи,Сэм,Сюзан,Сюзанна,Сюзет,Табата,Табби,Табита,Таджуана,Талалла,Талита,Талиша,Тамзен,Тами,Тамика,Тамия,Таммара,Тамми,Таммая,Тамра,Тамсен,Тамсин,Тамсон,Танзи,Тани,Тания,Танси,Тара,Тарина,Тасия,Татум,Татьянна,Тауни,Твила,Твилла,Теа,Тейлтта,Теймка,Теймла,Теймра,Тейнзи,Тейра,Текла,Темперансе,Темпест,Темпл,Тера,Тереза,Тери,Терра,Террай,Террая,Тесса,Тесси,Тетти,Тиана,Тианна,Тиара,Тибби,Тиил,Тил,Тилда,Тилер,Тили,Тилли,Тимаса,Тимотеа,Тина,Тирра,Титания,Титти,Тифани,Тиффани,Тиша,Тия,Томазин,Томазина,Тони,Тоннер,Тонни,Тонья,Топаз,Топпси,Топсей,Топси,Тория,Торусы,Тоти,Тотти,Тойя,Тракей,Траки,Тракки,Траффорд,Трейс,Трейси,Треси,Треша,Трикс,Трикси,Трина,Тринити,Трисия,Триш,Триша,Тришуэ,Трия,Трудей,Труди,Трудая,Тэйлер,Тэйлор,Тэйт,Тэра,Тэрри,Тэсс,Уна,Унаг,Уонда,Урсула,Фавн,Фае,Фаит,Файона,Файонола,Фанесса,Фани,Фанни,Фанси,Фара,Фарлей,Фарра,Феб,Фей,Фелина,Фелисити,Фелисия,Феличе,Фелиша,Фенелла,Феоб,Ферн,Филипа,Филиппа,Филиппин,Филиппина,Филис,Филлида,Филлис,Филлисе,Филомэль,Фими,Финелла,Финикс,Финола,Фирн,Флауэр,Флееретта,Флер,Флик,Флика,Фло,Флоелла,Флор,Флора,Флорайн,Флоренция,Флорет,Флоретта,Флори,Флоринда,Флорри,Флосси,Фоеб,Фона,Фортуна,Фран,Франкайн,Франкин,Франни,Франциска,Фреда,Фредди,Фредерика,Фрида,Фрэнки,Фэй,Фэйзэ,Фэрн,Хадлей,Хайди,Хайме,Халей,Хали,Хана,Хани,Ханна,Ханни,Хантер,Хара,Харлей,Хармони,Харпер,Харрит,Харритта,Хартлей,Хатти,Хезер,Хейз,Хейзел,Хейли,Хелене,Хелин,Хеллен,Хенритте,Хестер,Хетти,Хиацинт,Хилари,Хилда,Хиллэри,Хильда,Хло,Хлоя,Хозанна,Холли,Холлис,Хонор,Хонора,Хоратия,Хортенс,Хортенсия,Хоунор,Хоуп,Хэвен,Хэйден,Хэйди,Хэйлей,Хэйли,Хэппи,Хэтти,Циан,Цинния,Чазити,Чайна,Чана,Чанелл,Чантэйл,Чантэль,Чанэль,Чарис,Чарисса,Чарита,Чарити,Чарла,Чарлайн,Чарли,Чарлая,Чарлин,Чарлине,Чармиан,Чармэйн,Частити,Чевонн,Челис,Челл,Челсей,Челси,Челсая,Ченс,Чер,Черет,Чери,Черая,Чериз,Черил,Черилин,Черис,Чериш,Черокез,Черри,Чеьянн,Чина,Чонси,Чэйнт,Ша,Шавон,Шаелин,Шайен,Шакуила,Шан,Шана,Шанел,Шаника,Шаникуа,Шанин,Шанис,Шания,Шанна,Шаннен,Шаннон,Шанта,Шантел,Шантэль,Шаралин,Шари,Шариз,Шарил,Шарин,Шарла,Шарлин,Шарлотта,Шармейн,Шарона,Шаррон,Шеба,Шевон,Шевоун,Шей,Шейла,Шелаг,Шелби,Шелена,Шелия,Шелл,Шеллей,Шена,Шеона,Шери,Шерая,Шерил,Шерилин,Шерис,Шерлей,Шерли,Шерри,Ши,Шила,Шилаг,Шина,Шинаг,Ширли,Шона,Шонда,Шони,Шэй,Шэйла,Шэйлин,Шэйн,Шэрон,Эбби,Эббая,Эбони,Эвалин,Эванджелайн,Эвелайн,Эвелайна,Эвелин,Эвелина,Эвелия,Эверет,Эвет,Эви,Эвон,Эгги,Эглантина,Эдвайна,Эдвена,Эдвина,Эдди,Эди,Эдизэ,Эдилтрудис,Эдина,Эдит,Эдита,Эдна,Эдэн,Эзэлдреда,Эзэлинда,Эзэлфледа,Эйвери,Эйвис,Эйвисе,Эйлин,Эймей,Эйми,Эйн,Эйприл,Элайн,Элайора,Эланор,Элдреда,Элеа,Элеанор,Элен,Элена,Эленора,Элеонор,Элеоноре,Элиз,Элиза,Элизабет,Элизейбт,Элин,Элинор,Элинора,Элиса,Элисия,Элисон,Элисса,Элиша,Элишия,Элл,Элла,Эллен,Элленор,Эллери,Элли,Эллисон,Элмира,Элоиза,Элоуиз,Элсбет,Элсейбт,Элси,Элспет,Элспи,Элфреда,Элфрида,Эль,Эльба,Эльза,Эльфрида,Эм,Эмели,Эмелия,Эмеральд,Эми,Эмилайн,Эмили,Эмилин,Эмилия,Эмити,Эмлин,Эмма,Эммалайн,Эммелин,Эммет,Эмми,Эммая,Эна,Энджи,Энди,Энима,Энн,Энни,Энн-Мэри,Энола,Энья,Эпифани,Эпона,Эппи,Эрика,Эрикка,Эрин,Эриса,Эрма,Эрнеста,Эрнестайн,Эсмерелда,Эсмеролда,Эсса,Эссенсе,Эсси,Эста,Эстель,Эстер,Эстэ,Этна,Этта,Этти,Этхна,Этэль,Эффи,Эффая,Эхо,Эш,Эшли,Юджиния,Юла,Юлалия,Юлия,Юнис,Юнити,Юстасия,Язмин,Яник,Янник,Ясмайн,Ясмина,Яшмайн</value>
+  </data>
+  <data name="Flax" xml:space="preserve">
+    <value>Flax</value>
+  </data>
+  <data name="Hay" xml:space="preserve">
+    <value>Fodder</value>
+  </data>
+  <data name="HorseStatsuEcho" xml:space="preserve">
+    <value>ultrasound</value>
+  </data>
+  <data name="HorseStatusAbortion" xml:space="preserve">
+    <value>abortion</value>
+  </data>
+  <data name="HorseStatusAge" xml:space="preserve">
+    <value>age point</value>
+  </data>
+  <data name="HorseStatusBirth" xml:space="preserve">
+    <value>birth</value>
+  </data>
+  <data name="HorseStatusCarrot" xml:space="preserve">
+    <value>carrot</value>
+  </data>
+  <data name="HorseStatusCenter" xml:space="preserve">
+    <value>choose EC</value>
+  </data>
+  <data name="HorseStatusCenterCancel" xml:space="preserve">
+    <value>cancel EC stay</value>
+  </data>
+  <data name="HorseStatusCompetition" xml:space="preserve">
+    <value>competition</value>
+  </data>
+  <data name="HorseStatusDrink" xml:space="preserve">
+    <value>drink</value>
+  </data>
+  <data name="HorseStatusEquipment" xml:space="preserve">
+    <value>equipment</value>
+  </data>
+  <data name="HorseStatusFeed" xml:space="preserve">
+    <value>feed</value>
+  </data>
+  <data name="HorseStatusGame" xml:space="preserve">
+    <value>play</value>
+  </data>
+  <data name="HorseStatusGroom" xml:space="preserve">
+    <value>groom</value>
+  </data>
+  <data name="HorseStatusMaleHorsing" xml:space="preserve">
+    <value>cover</value>
+  </data>
+  <data name="HorseStatusMash" xml:space="preserve">
+    <value>mash</value>
+  </data>
+  <data name="HorseStatusMission" xml:space="preserve">
+    <value>mission</value>
+  </data>
+  <data name="HorseStatusRename" xml:space="preserve">
+    <value>rename</value>
+  </data>
+  <data name="HorseStatusReserveCenter" xml:space="preserve">
+    <value>choose reserved EC</value>
+  </data>
+  <data name="HorseStatusReturnToMom" xml:space="preserve">
+    <value>back to dam</value>
+  </data>
+  <data name="HorseStatusSleep" xml:space="preserve">
+    <value>sleep</value>
+  </data>
+  <data name="HorseStatusSpecialization" xml:space="preserve">
+    <value>choose specialty</value>
+  </data>
+  <data name="HorseStatusStroke" xml:space="preserve">
+    <value>stroke</value>
+  </data>
+  <data name="HorseStatusTraining" xml:space="preserve">
+    <value>training</value>
+  </data>
+  <data name="HorseStatusWalk" xml:space="preserve">
+    <value>ride</value>
+  </data>
+  <data name="HorseStatusWhip" xml:space="preserve">
+    <value>whip</value>
+  </data>
+  <data name="HorsingEdge10Years" xml:space="preserve">
+    <value>10 years old</value>
+  </data>
+  <data name="HorsingEdge60NLNP" xml:space="preserve">
+    <value>60 BLUP</value>
+  </data>
+  <data name="Leather" xml:space="preserve">
+    <value>Leather</value>
+  </data>
+  <data name="LimitHorses" xml:space="preserve">
+    <value>Amount of horses</value>
+  </data>
+  <data name="LimitOR" xml:space="preserve">
+    <value>Amount of aging points</value>
+  </data>
+  <data name="LoginCoBtn" xml:space="preserve">
+    <value>Connect to shared acc</value>
+  </data>
+  <data name="LoginCoErrorMessage1" xml:space="preserve">
+    <value>Failed to load shared accounts!</value>
+  </data>
+  <data name="LoginCoErrorMessage2" xml:space="preserve">
+    <value>Failed to connect to shared acc!</value>
+  </data>
+  <data name="LoginCoPageCancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LoginCoPageLoginBtn" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginErrorMessage1" xml:space="preserve">
+    <value>Failed to connect to shared acc!</value>
+  </data>
+  <data name="LoginErrorMessage2" xml:space="preserve">
+    <value>Failed to login!</value>
+  </data>
+  <data name="LoginPageClearBtn" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="LoginPageDeleteBtn" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LoginPageLoginBtn" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginPageLoginText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginPagePasswordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginPageProxyLoginText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginPageProxyPasswordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginPageProxyText" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="LoginPageRememberChk" xml:space="preserve">
+    <value>Remember password</value>
+  </data>
+  <data name="LoginPageSavedAccsText" xml:space="preserve">
+    <value>Saved accounts</value>
+  </data>
+  <data name="LoginPageServerText" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="LogoutCoBtn" xml:space="preserve">
+    <value>Disconnect from shared acc</value>
+  </data>
+  <data name="MainCancelMessage" xml:space="preserve">
+    <value>Cancelled!</value>
+  </data>
+  <data name="MainErrorMessage1" xml:space="preserve">
+    <value>This horse is in heaven! Unable to add!</value>
+  </data>
+  <data name="MainErrorMessage2" xml:space="preserve">
+    <value>There was an error while training! All necessary data has been recorded. Submit a bug report.</value>
+  </data>
+  <data name="MainErrorMessage3" xml:space="preserve">
+    <value>Wrong number of horses for this scheme (pair/half pair)!</value>
+  </data>
+  <data name="MainErrorMessage4" xml:space="preserve">
+    <value>This account is not shared!</value>
+  </data>
+  <data name="MainPageAddBtn" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="MainPageAgeText" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="MainPageAmountText" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="MainPageAPText" xml:space="preserve">
+    <value>Aging points</value>
+  </data>
+  <data name="MainPageCarrotText" xml:space="preserve">
+    <value>Carrot</value>
+  </data>
+  <data name="MainPageDeleteBtn" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MainPageEnergyText" xml:space="preserve">
+    <value>Energy</value>
+  </data>
+  <data name="MainPageEquText" xml:space="preserve">
+    <value>Equus</value>
+  </data>
+  <data name="MainPageExitBtn" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MainPageFilterText" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="MainPageGalopText" xml:space="preserve">
+    <value>Gallop</value>
+  </data>
+  <data name="MainPageGoText" xml:space="preserve">
+    <value>Dressage</value>
+  </data>
+  <data name="MainPageHayText" xml:space="preserve">
+    <value>Fodder</value>
+  </data>
+  <data name="MainPageHealthText" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="MainPageHorseNameText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="MainPageHorseText" xml:space="preserve">
+    <value>Horses</value>
+  </data>
+  <data name="MainPageInfoText" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="MainPageJumpText" xml:space="preserve">
+    <value>Jumping</value>
+  </data>
+  <data name="MainPageLoadBtn" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="MainPageLoginCoBtn" xml:space="preserve">
+    <value>Connect to shared acc</value>
+  </data>
+  <data name="MainPageLynxText" xml:space="preserve">
+    <value>Trot</value>
+  </data>
+  <data name="MainPageManagerBtn" xml:space="preserve">
+    <value>Manage account</value>
+  </data>
+  <data name="MainPageMeshText" xml:space="preserve">
+    <value>Mash</value>
+  </data>
+  <data name="MainPageMultipleChk" xml:space="preserve">
+    <value>Multiple lines</value>
+  </data>
+  <data name="MainPageNameText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="MainPageNLNPText" xml:space="preserve">
+    <value>BLUP</value>
+  </data>
+  <data name="MainPageOatText" xml:space="preserve">
+    <value>Oats</value>
+  </data>
+  <data name="MainPageReloadFarmsBtn" xml:space="preserve">
+    <value>Reload farms</value>
+  </data>
+  <data name="MainPageSaveCoBtn" xml:space="preserve">
+    <value>Save shared account</value>
+  </data>
+  <data name="MainPageSchemeText" xml:space="preserve">
+    <value>Scheme</value>
+  </data>
+  <data name="MainPageSettingsBtn" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MainPageSkillsText" xml:space="preserve">
+    <value>Skills</value>
+  </data>
+  <data name="MainPageSortText" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="MainPageSpeedText" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="MainPageStartBtn" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="MainPageStatusBtn" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MainPageStatusText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MainPageStopBtn" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="MainPageTimeText" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="MainPageVitalityText" xml:space="preserve">
+    <value>Stamina</value>
+  </data>
+  <data name="MainSaveAccountMessage" xml:space="preserve">
+    <value>Account saved!</value>
+  </data>
+  <data name="MaleNames" xml:space="preserve">
+    <value>Ааран,Аарен,Ааррон,Аб,Аббат,Абботт,Абей,Абелл,Абель,Абнар,Абнер,Абнор,Абот,Аботт,Абрам,Абран,Абрахам,Абсалон,Аверилл,Адам,Аддам,Аддисон,Аден,Адисон,Адиссон,Адлэй,Адней,Адольф,Адриан,Адэйр,Адэр,Азия,Азэлстан,Айбл,Айзек,Айк,Ак,Акей,Акерлеа,Акерлей,Акерли,Аки,Аклеа,Аклей,Акли,Актон,Акэль,Алан,Аластеир,Аластэйр,Алвар,Алвен,Алви,Алвин,Алвис,Алгар,Алджернон,Алеистер,Алек,Алекс,Александр,Ален,Алестер,Алжир,Алик,Аликс,Алисандр,Алисдэйр,Алиссандр,Алистер,Алистэйр,Аллан,Аллен,Аллин,Аллистер,Аллистир,Аллистэйр,Алтон,Алф,Алфонзо,Алфорд,Алфрид,Альберт,Альдина,Альпин,Альтаир,Альфа,Альфи,Альфред,Алэйстер,Алэйстэйр,Амби,Амброуз,Амедеус,Амиас,Амори,Амос,Амьяс,Анакин,Ангел,Ангес,Андерсон,Анджелл,Анж,Анском,Анскомб,Ансон,Антван,Антуан,Арден,Арик,Арил,Арин,Аркелл,Арли,Арман,Арн,Арне,Арни,Арнольд,Арран,Аррин,Аррон,Арт,Арти,Артур,Арчи,Арчибальд,Аселет,Аселин,Асер,Астон,Афтон,Аффтон,Ачилл,Аш,Ашер,Аштон,Бад,Бадди,Баз,Базилик,Байрон,Байярд,Бак,Бакстер,Балдер,Балдрик,Бамби,Баптист,Бардолф,Барии,Барклей,Барнабас,Барни,Барнэби,Барретт,Барри,Барт,Бартоломей,Бассетт,Бастер,Бастиан,Батч,Беван,Беверли,Бевис,Бедивир,Бейб,Бейлей,Бейлие,Бен,Бенджамин,Бенджи,Бенедикт,Бенет,Беннетт,Бенни,Бенние,Бенсон,Бентлей,Бентон,Беорегард,Бердт,Беренгар,Беренджер,Берет,Бернард,Берни,Берри,Берт,Берти,Бертон,Бертрам,Бертран,Бивис,Билл,Билли,Бисш,Биф,Блейн,Близэ,Блисс,Блэйз,Блэйк,Блэйн,Блэр,Боб,Бобби,Болдуин,Боллард,Бомонт,Бонифэйс,Борис,Брадлей,Браеден,Брайен,Брайон,Бранден,Брандон,Браннон,Брейден,Брейдн,Брендан,Бренден,Брендон,Бреннан,Брент,Брентон,Брет,Бретт,Бриар,Брион,Брис,Бриско,Бриттон,Бриэм,Бродерик,Броди,Броз,Брок,Бронт,Броуди,Броук,Брук,Брукс,Бруно,Брутус,Брьянт,Брэд,Брэди,Брэдфорд,Брэйден,Брэйди,Брэм,Брэн,Брюс,Брююс,Буз,Букер,Бью,Бэйли,Вал,Валентайн,Вард,Ваухан,Вашингтон,Вебстер,Велдон,Вер,Верджил,Верн,Вернон,Вестер,Вестлей,Вестон,Вик,Виктор,Вил,Вилберн,Вилей,Вилки,Вилл,Вилли,Виллоби,Вилмар,Вилмер,Вилмот,Вилсон,Вилф,Вилфорд,Вильтон,Вин,Виндзор,Винни,Винс,Винсент,Винслоу,Винтроп,Вирджиль,Вистан,Витейкр,Витней,Воган,Вогн,Волдо,Волкер,Воллис,Вольф,Воспой,Вуди,Вудроу,Вулф,Вьятт,Вэйд,Вэйланд,Вэнс,Габби,Габриэль,Гай,Гайлс,Гален,Гамильтон,Гантэр,Гарван,Гарей,Гарланд,Гарнет,Гарольд,Гарри,Гарс,Гарфилд,Гас,Гваделупа,Гейб,Гейл,Гейр,Гектор,Ген,Генри,Герберт,Герман,Гидеон,Гильберт,Гисберт,Гладвин,Гланвилл,Глендауэр,Гленн,Глэн,Говард,Годвин,Годфри,Голлагэр,Голладжер,Гомер,Горд,Горден,Гордон,Граем,Грай,Гранвилл,Гранд,Грахэйм,Грег,Грей,Гренвилл,Гриир,Грир,Гриффин,Гриффит,Гровер,Грэг,Грэгори,Грэди,Грэм,Гудвин,Гудзон,Гэй,Гэйбл,Гэйг,Гэйдж,Гэйелорд,Гэйл,Гэйлон,Гэйлорд,Гэйр,Гэлл,Гэри,Давей,Дави,Дад,Дадда,Дадли,Даймонд,Дакей,Дакота,Дакс,Далтон,Дамайон,Дамиан,Дана,Дани,Данки,Данни,Дарби,Дарвин,Дарден,Дарен,Дариан,Дарил,Дарин,Дарки,Дарнелл,Даррел,Даррен,Даррил,Даррин,Даррэль,Д'артагнан,Дасти,Дастин,Дау,Дафф,Даффи,Дашилл,Дван,Двэйн,Деай,Деван,Девен,Девереукс,Девин,Девон,Дейв,Дейл,Дейрлл,Дейрн,Деклан,Декстер,Делберт,Делл,Делмар,Делрой,Деметриус,Демон,Ден,Денвер,Денеб,Дензэль,Дени,Денил,Деннис,Дентон,Деон,Деонн,Деонт,Дерби,Дерек,Дерик,Дермот,Дерок,Деррен,Дерри,Деррил,Дефорест,Дефоррест,Дешон,Джадд,Джадин,Джай,Джайлс,Джак,Джамар,Джамей,Джамисон,Джарвис,Джаред,Джарод,Джарред,Джарретт,Джаррод,Джаспер,Джасти,Джастин,Джеб,Джед,Джедидиа,Джейдн,Джейк,Джейлн,Джейми,Джеймс,Джейрт,Джейсон,Джекки,Джекоб,Джем,Дженкин,Джеп,Джер,Джералд,Джеральд,Джерард,Джерваз,Джервис,Джереми,Джери,Джермэйн,Джеролд,Джером,Джеррард,Джерред,Джерри,Джеррод,Джерролд,Джес,Джесси,Джетро,Джетт,Джеф,Джеффери,Джефферсон,Джеффрей,Джеффри,Джиб,Джид,Джиди,Джил,Джим,Джими,Джимми,Джисберт,Джиффард,Джо,Джоб,Джоби,Джоджо,Джоди,Джозеф,Джой,Джойс,Джон,Джоназан,Джоназон,Джонасон,Джонатан,Джоней,Джони,Джонни,Джонти,Джорги,Джордан,Джордж,Джорди,Джордон,Джосс,Джоул,Джош,Джошоа,Джошуа,Джулс,Джульян,Джустис,Джьюд,Джэй,Джэйд,Джэйда,Джэйден,Джэйдон,Джэйкоб,Джэйлен,Джэйлин,Джэйлон,Джэймес,Джэйсон,Джэксон,Джэмини,Джэмми,Джэн,Ди,Диакон,Дигби,Диггори,Дигори,Дизон,Дик,Дики,Дикки,Дил,Дилан,Дилберт,Димер,Дин,Диндр,Дирк,Доб,Додж,Дольф,Дом,Доменик,Доминик,Дон,Дональд,Донни,Донован,Дор,Дориан,Доусон,Драйк,Древ,Дрейвн,Дуайт,Дуан,Дуг,Дуги,Дуглас,Дункан,Дунстан,Дью,Дьюей,Дьюэйн,Дэвид,Дэвис,Дэй,Дэйви,Дэйн,Дэйтон,Дэн,Дэни,Дэниел,Дэнни,Дэррик,Дэшон,Дюк,Жюль,Завир,Зак,Закери,Зандер,Захарий,Зачариа,Зачэри,Зед,Зедекиа,Зек,Зубин,Зэофилус,Иб,Игнатиус,Ид,Иззи,Изидор,Имон,Инглеберт,Инграм,Инди,Индиана,Индиго,Инесент,Иниго,Иорик,Ирвайн,Ирвин,Ирвинг,Ирл,Ирнест,Иссак,Исси,Истер,Йорк,Ка,Кадмус,Каин,Каир,Кайд,Кайл,Кал,Каллен,Кам,Камден,Камрон,Карбрей,Карбри,Карвер,Карей,Карл,Карлайл,Карлейл,Карлин,Карлтон,Каррол,Картер,Касиди,Каспер,Кассиди,Квентин,Квинтин,Кеван,Кевин,Кей,Кейденс,Кейдн,Кейлб,Кеймрон,Кейси,Келвин,Келкей,Келл,Келли,Келсей,Кемп,Кен,Кендал,Кендол,Кендрик,Кенелм,Кензи,Кенит,Кеннеди,Кеннет,Кенни,Кеннит,Кенрик,Кент,Кентиджерн,Кентон,Кермит,Керней,Керр,Керри,Керт,Кертис,Кешон,Ки,Киаран,Килан,Килер,Килиан,Киллиан,Кимбелайн,Кимберли,Кимбол,Кимбэль,Кин,Кинан,Кинастон,Кинг,Кингслей,Кип,Киран,Кирби,Кирк,Кирон,Кирус,Кит,Китон,Киф,Клайв,Клайд,Кланкей,Кланки,Кларенс,Кларк,Клев,Клей,Клейтон,Клем,Клемент,Клемми,Клетис,Клетус,Кливленд,Клинт,Клинтон,Клифтон,Клифф,Клиффорд,Клод,Клэйрк,Клэр,Кодей,Коди,Коертней,Кола,Коламбан,Колберт,Колби,Колдер,Колин,Коллахан,Коллин,Коллум,Колтен,Колтон,Кольт,Конан,Конвей,Конлей,Коннелл,Коннер,Коннор,Конор,Конрад,Конфуций,Корбин,Корделл,Корей,Кори,Корнелиус,Кортней,Кортни,Корэй,Коти,Коул,Коулман,Крис,Криспиан,Криспин,Кристи,Кристиан,Кристопэр,Кристофер,Крофорд,Крофтон,Крэйг,Ксавайор,Ксавьер,Ксан,Ксзавир,Куин,Куинкей,Куинси,Куинтон,Купер,Курт,Куртис,Кэйд,Кэйдн,Кэйл,Кэйлб,Кэймрон,Кэйн,Кэйси,Кэлвин,Кэм,Кэмп,Кэмпбэл,Кэри,Лаверн,Лавлл,Лаз,Лайл,Лайонел,Лаки,Ланни,Ланфорд,Ларк,Ларкин,Ларри,Леви,Лейврн,Лейн,Лейтон,Лекс,Леланд,Лем,Лемми,Лемюэль,Лен,Ленард,Лени,Леннард,Ленни,Лео,Леон,Леонард,Леопольд,Лерой,Лес,Лесли,Лестер,Ли,Лии,Лин,Линдон,Линдсей,Линдси,Линкольн,Линн,Линсей,Линтон,Линус,Линфорд,Лирой,Лисандр,Литон,Лихнис,Ллойд,Ллью,Лльюелин,Лльюеллин,Ло,Ловэль,Лойд,Лон,Лондон,Лонни,Лонс,Лорен,Лоренс,Лори,Лорин,Лорни,Лоррин,Лосон,Лоуэлл,Лу,Лудо,Луи,Лукиан,Льюин,Льюис,Лэйк,Лэйн,Лэйтон,Лэндон,Лэнс,Лэрри,Людовик,Люк,Люкс,Лютер,Маверик,Мадисон,Майк,Майкл,Майлз,Майрон,Макей,Макензи,Маки,Макинтош,Маккензи,Макс,Максвелл,Максимиллиан,Малачи,Малком,Малоун,Манлей,Манни,Манникс,Марвин,Мариус,Марка,Марко,Маркус,Марлен,Марлин,Марлон,Марлоу,Мармадьюк,Марри,Марти,Мартиал,Мартин,Маршал,Маршалл,Масон,Мастерман,Матти,Мед,Мелвилль,Мелвин,Мельбурн,Мерв,Мервин,Мерди,Мердо,Мердок,Мередит,Мерит,Мерл,Мерлин,Меррилл,Мерритт,Мертон,Мерфи,Мид,Миид,Мик,Мика,Мики,Микки,Милберн,Миллард,Мило,Милтон,Милфорд,Митчелл,Мич,Мича,Мичил,Мо,Моз,Моисей,Молком,Монро,Монтагью,Монтгомери,Монте-Карло,Монти,Монтморенки,Морган,Морген,Мордекэй,Морис,Морлей,Моррис,Морт,Морти,Мортимер,Мортон,Мосс,Моэ,Мулава,Мэйнард,Мэйнерд,Мэйор,Мэйсон,Мэйтланд,Мэлори,Мэль,Мэриан,Мэрион,Мэт,Мэтт,Мэтти,Мэтью,Назаниль,Найджел,Найлс,Нанди,Нат,Натан,Науэлл,Наш,Невада,Неван,Невил,Невилл,Нед,Нейл,Нейлл,Нейт,Нельсон,Нео,Нивек,Нивен,Ник,Никк,Никки,Николас,Нили,Нимбус,Ноа,Нолан,Нолл,Норберт,Норвуд,Норм,Норман,Норманд,Норрис,Нортон,Ноубль,Ноэль,Ньют,Ньютон,Оберон,Обин,Обри,Огастин,Огден,Огэст,Оделл,Одлей,Одран,Оззи,Океан,Олби,Олбэйн,Олдвен,Олдвин,Олден,Олдин,Олдис,Олдон,Олдос,Олдред,Олдус,Олдфорд,Олей,Оли,Оливер,Олластер,Олластир,Оллгар,Оллджер,Олли,Оллин,Оллисдэйр,Оллистер,Оллистэйр,Оллон,Оллэйстар,Омега,Ора,Оран,Орвал,Орвилл,Ориан,Ормерод,Оррелл,Оррин,Орсон,Осберт,Осбоерн,Осборн,Освальд,Осень,Оскар,Остен,Остин,Отис,Оттис,Оуин,Оуэн,Ошин,Пайс,Палмер,Панкрас,Паркер,Паррис,Пат,Патрик,Патси,Пеитон,Пепин,Перри,Перс,Перси,Персиваль,Петеркин,Пип,Пипер,Пирр,Пирс,Пит,Питер,Пол,Поли,Поликарп,Помпей,Портер,Престон,Приам,Принц,Проспер,Пэйс,Пэйси,Пэйтон,Равен,Раз,Раймонд,Раймунд,Райордан,Райт,Ралф,Ралфи,Ральф,Ранделл,Ранди,Рандолф,Рандольф,Расс,Рассел,Рассэль,Расти,Растус,Раян,Реарден,Реган,Редклиф,Редклифф,Редлей,Редд,Редж,Реджи,Реджинальд,Редманд,Редмонд,Реид,Рей,Рейли,Рейнард,Рейнольд,Рекс,Риган,Ригби,Рид,Ридлей,Риель,Рик,Рикей,Рики,Рилан,Рилей,Рили,Рио,Риплей,Рис,Рич,Ричард,Ричи,Роб,Робби,Роберт,Роби,Робин,Рован,Род,Роддж,Родджер,Родди,Родерик,Роджер,Родни,Родолф,Рой,Ройл,Ройс,Ройстон,Роки,Роланд,Роли,Ролланд,Ролли,Рон,Рональд,Ронни,Рори,Роско,Росс,Роуланд,Роулей,Роял,Рубен,Рубин,Руди,Рудольф,Рудьярд,Рхетт,Рьюб,Рэд,Рэй,Рэйнард,Рэйнер,Рэйф,Рэндал,Рэндалл,Савьер,Сайг,Саймон,Салал,Салливан,Самми,Сандфорд,Санни,Санфорд,Свизин,Свизун,Свиней,Себастьян,Севард,Седрик,Сеймур,Селби,Септембер,Сесил,Сет,Сефтон,Сивард,Сигманд,Сид,Сидней,Силас,Силвестр,Сильвер,Сильвестр,Симеон,Синклэйр,Сирил,Сисар,Скай,Скилар,Скилер,Скот,Скотти,Скуилер,Слай,Слэйд,Сони,Сонни,Спайк,Спарроу,Спенсер,Спиро,Стакей,Стаффорд,Стерлинг,Стеф,Сти,Стив,Стивен,Стиви,Стиу,Сторм,Сту,Стэки,Стэн,Стэнли,Стэнфорд,Стюарт,Сэм,Сэмюэль,Сэнди,Тад,Таддеус,Тай,Такер,Тал,Талбот,Таннер,Таскилл,Таффи,Тед,Тейгу,Тейдж,Тейрк,Текс,Тенней,Теннизон,Тео,Теобальд,Теодор,Теранс,Теренс,Терло,Терранс,Террелл,Терренс,Терстон,Ти,Тиарнак,Тиарнан,Тибалт,Тибби,Тигу,Тизон,Тилар,Тилер,Тилор,Тим,Тимми,Тимоти,Тирелл,Тирнан,Тирней,Тирон,Тироун,Тиррелл,Тоал,Тоби,Тобиас,Тобин,Тод,Тодд,Толли,Том,Томас,Томми,Тон,Тони,Топэр,Торлей,Торнтон,Травис,Тракей,Трантер,Траффорд,Траэрн,Трев,Тревельян,Тревор,Трейврс,Трейс,Трейси,Трент,Трентон,Тристрам,Трой,Труман,Тусон,Тэдди,Тэди,Тэйлер,Тэйлор,Тэйн,Тэйт,Тэл,Тэмпл,Тэрри,Уилбер,Уиллард,Уиллис,Уилфред,Уилфрид,Уильям,Уинстон,Уинфред,Уисдом,Улайксс,Улиссес,Уолли,Уоллис,Уолт,Уолтер,Уолтон,Уорик,Уорнер,Уоррен,Уот,Уоткин,Уптон,Урбан,Уриах,Уэйн,Уэсли,Фабиан,Фалк,Фарлей,Фарон,Фарран,Фелан,Фелиз,Феликс,Фелим,Фелис,Фентон,Ферги,Фергус,Ферд,Ферди,Фердинанд,Фестер,Фестус,Фидо,Фил,Филайп,Филандр,Филберт,Филип,Филипп,Фило,Финикс,Финис,Флемминг,Флечер,Флинн,Флинт,Флойд,Флорри,Флурри,Фок,Фокс,Фонз,Фонзи,Форбес,Форд,Форест,Форрест,Фостер,Фоук,Фразир,Франклин,Фред,Фредди,Фредерик,Фредрик,Фрейзер,Фрейзр,Фримэн,Фритс,Фродо,Фрэнк,Фрэнки,Фрэнклин,Фрэнс,Фрэнсис,Хавелок,Хадвин,Хадлей,Хал,Хам,Хамиш,Хамлет,Хаммонд,Ханк,Ханлей,Хантер,Харв,Харви,Харди,Хардинг,Харкоерт,Харлан,Харланд,Харлей,Харлин,Хармон,Харпер,Харрис,Харрисон,Хартлей,Хауелл,Хедлей,Хек,Хендерсон,Хендрик,Хенрай,Хенри,Херб,Херби,Хервей,Херлей,Хиацинт,Хилари,Хиллэри,Хирам,Хис,Хитклифф,Хию,Хоард,Хоб,Ходдж,Хойт,Холден,Холл,Холлис,Хомер,Хопкин,Хорас,Хоратайо,Хоуи,Худд,Хуей,Хует,Хукк,Хукслей,Хумберт,Хунтлей,Хуффи,Хью,Хьюберт,Хьюго,Хьюи,Хэвен,Хэдлей,Хэйвуд,Хэйден,Хэйл,Хэмфри,Хэппи,Хюи,Чад,Чадвик,Чаз,Чак,Чакки,Чарли,Чарлтон,Чарльз,Час,Чейз,Чендлер,Ченс,Черокез,Честер,Чеьянн,Чип,Чонки,Чонси,Ша,Шад,Шаи,Шайенн,Шакуилл,Шамус,Шан,Шаннен,Шаннон,Шау,Шеврон,Шелби,Шелдон,Шеллей,Шелтон,Шем,Шервуд,Шеридан,Шерлок,Шерман,Ши,Шилох,Шимус,Шолто,Шон,Шэй,Шэйн,Эбби,Эбен,Эбенезер,Эван,Эвелин,Эверард,Эверетт,Эверитт,Эвот,Эгберт,Эд,Эдан,Эдвард,Эдвин,Эдгар,Эдди,Эдисон,Эдмунд,Эдон,Эдун,Эзраа,Эзэлстан,Эзэлуолф,Эйб,Эйби,Эйвери,Эйден,Эйлберт,Эйлвард,Эймерей,Эймери,Эйнслей,Эйнсли,Эйс,Элайотт,Элбан,Элвин,Элвис,Элвуд,Элгар,Элдвен,Элдвин,Элден,Элджер,Элдин,Элдис,Элдон,Элдред,Элдус,Эли,Элиас,Элиджа,Элиот,Элла,Эллгар,Эллджер,Эллери,Эллиот,Эллис,Элмер,Элрик,Элрой,Элсдон,Эльберт,Эльтон,Эмерсон,Эмиль,Эммануель,Эммерсон,Эммет,Эмметт,Эмори,Эмэри,Энджелберт,Энди,Эндрю,Энтони,Эрван,Эрвин,Эрек,Эрик,Эрл,Эрн,Эрнест,Эрни,Эрон,Эррол,Эрролл,Этан,Этелберт,Этелред,Этелрик,Этелхард,Эшли,Эюзби,Юджин,Юлиан,Юлиус,Юниор,Юстас,Янкей,Янки,Ярвуд</value>
+  </data>
+  <data name="ManagerBuyErrorMessage" xml:space="preserve">
+    <value>Error while buying!</value>
+  </data>
+  <data name="ManagerPageApplesText" xml:space="preserve">
+    <value>Apples</value>
+  </data>
+  <data name="ManagerPageBuyBtn" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="ManagerPageCarrotText" xml:space="preserve">
+    <value>Carrot</value>
+  </data>
+  <data name="ManagerPageFlaxText" xml:space="preserve">
+    <value>Flax</value>
+  </data>
+  <data name="ManagerPageHayText" xml:space="preserve">
+    <value>Fodder</value>
+  </data>
+  <data name="ManagerPageLeatherText" xml:space="preserve">
+    <value>Leather</value>
+  </data>
+  <data name="ManagerPageOatText" xml:space="preserve">
+    <value>Oats</value>
+  </data>
+  <data name="ManagerPageReturnBtn" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="ManagerPageSandText" xml:space="preserve">
+    <value>Sand</value>
+  </data>
+  <data name="ManagerPageSellBtn" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="ManagerPageShitText" xml:space="preserve">
+    <value>Droppings</value>
+  </data>
+  <data name="ManagerPageSteelText" xml:space="preserve">
+    <value>Iron</value>
+  </data>
+  <data name="ManagerPageStrawText" xml:space="preserve">
+    <value>Straw</value>
+  </data>
+  <data name="ManagerPageWheatText" xml:space="preserve">
+    <value>Wheat</value>
+  </data>
+  <data name="ManagerPageWoodText" xml:space="preserve">
+    <value>Wood</value>
+  </data>
+  <data name="ManagerSellErrorMessage" xml:space="preserve">
+    <value>Error while selling!</value>
+  </data>
+  <data name="Mash" xml:space="preserve">
+    <value>Mash</value>
+  </data>
+  <data name="NamesWindowErrorMessage1" xml:space="preserve">
+    <value>Name not specified! </value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Do not sell</value>
+  </data>
+  <data name="Oat" xml:space="preserve">
+    <value>Oats</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Aging points</value>
+  </data>
+  <data name="PGDressage" xml:space="preserve">
+    <value>Dressage</value>
+  </data>
+  <data name="PGGalop" xml:space="preserve">
+    <value>Gallop</value>
+  </data>
+  <data name="PGJump" xml:space="preserve">
+    <value>Jumping</value>
+  </data>
+  <data name="PGLynx" xml:space="preserve">
+    <value>Trot</value>
+  </data>
+  <data name="PGNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PGSpeed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="PGVitality" xml:space="preserve">
+    <value>Stamina</value>
+  </data>
+  <data name="ReportErrorMessage" xml:space="preserve">
+    <value>Failed to send bug report</value>
+  </data>
+  <data name="ReportPageContactsText" xml:space="preserve">
+    <value>Contacts (vk/email)</value>
+  </data>
+  <data name="ReportPageMessageText" xml:space="preserve">
+    <value>Message text</value>
+  </data>
+  <data name="ReportPageReturnBtn" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="ReportPageSendBtn" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ReportSuccessMessage" xml:space="preserve">
+    <value>Message was sent!</value>
+  </data>
+  <data name="Sand" xml:space="preserve">
+    <value>Sand</value>
+  </data>
+  <data name="SchemeTypeHalfPair" xml:space="preserve">
+    <value>Half-pair</value>
+  </data>
+  <data name="SchemeTypePair" xml:space="preserve">
+    <value>Pair</value>
+  </data>
+  <data name="ServerArabic" xml:space="preserve">
+    <value>Arabian</value>
+  </data>
+  <data name="ServerAustralia" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="ServerBulgaria" xml:space="preserve">
+    <value>Bulgaria</value>
+  </data>
+  <data name="ServerCanada" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="ServerEngland" xml:space="preserve">
+    <value>England</value>
+  </data>
+  <data name="ServerFranceGaia" xml:space="preserve">
+    <value>France Gaia</value>
+  </data>
+  <data name="ServerFranceOuranos" xml:space="preserve">
+    <value>France Ouranos</value>
+  </data>
+  <data name="ServerGermany" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="ServerInternational" xml:space="preserve">
+    <value>International</value>
+  </data>
+  <data name="ServerNorway" xml:space="preserve">
+    <value>Norway</value>
+  </data>
+  <data name="ServerPoland" xml:space="preserve">
+    <value>Poland</value>
+  </data>
+  <data name="ServerRomain" xml:space="preserve">
+    <value>Romain</value>
+  </data>
+  <data name="ServerRussia" xml:space="preserve">
+    <value>Russia</value>
+  </data>
+  <data name="ServerSpain" xml:space="preserve">
+    <value>Spain</value>
+  </data>
+  <data name="ServerSweden" xml:space="preserve">
+    <value>Sweden</value>
+  </data>
+  <data name="ServerUSA" xml:space="preserve">
+    <value>USA</value>
+  </data>
+  <data name="SettingsErrorMessage1" xml:space="preserve">
+    <value>Unable to load settings from the file! Make sure the file was created with the current version of the program!</value>
+  </data>
+  <data name="SettingsErrorMessage2" xml:space="preserve">
+    <value>Error while saving file!</value>
+  </data>
+  <data name="SettingsErrorMessage3" xml:space="preserve">
+    <value>You specified reserved EC box, but don't specify it's ID or own EC mark. Select the required settings and try again!</value>
+  </data>
+  <data name="SettingsPageAbortionChk" xml:space="preserve">
+    <value>Abortion</value>
+  </data>
+  <data name="SettingsPageAcceptBtn" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="SettingsPageAffixText" xml:space="preserve">
+    <value>Affix</value>
+  </data>
+  <data name="SettingsPageAmunityionText" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
+  <data name="SettingsPageBandageChk" xml:space="preserve">
+    <value>Wraps</value>
+  </data>
+  <data name="SettingsPageBuyCarrotMeshChk" xml:space="preserve">
+    <value>Buy carrot/mash</value>
+  </data>
+  <data name="SettingsPageBuyFoodChk" xml:space="preserve">
+    <value>Buy food</value>
+  </data>
+  <data name="SettingsPageCancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SettingsPageCenterText" xml:space="preserve">
+    <value>EC</value>
+  </data>
+  <data name="SettingsPageChangeBtn" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="SettingsPageDeleteFromCenterChk" xml:space="preserve">
+    <value>Cancel EC stay</value>
+  </data>
+  <data name="SettingsPageFarmText" xml:space="preserve">
+    <value>Farm</value>
+  </data>
+  <data name="SettingsPageFemalNameText" xml:space="preserve">
+    <value>Female name</value>
+  </data>
+  <data name="SettingsPageForeheadChk" xml:space="preserve">
+    <value>Bonnet</value>
+  </data>
+  <data name="SettingsPageGamesChk" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="SettingsPageGeneralText" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="SettingsPageHealthText" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="SettingsPageHighWeightChk" xml:space="preserve">
+    <value>Draft horses</value>
+  </data>
+  <data name="SettingsPageHorsingAmountText" xml:space="preserve">
+    <value>Amount of ♂ covers for team</value>
+  </data>
+  <data name="SettingsPageHorsingBirthText" xml:space="preserve">
+    <value>Covers/Birth</value>
+  </data>
+  <data name="SettingsPageHorsingWithText" xml:space="preserve">
+    <value>Covers with</value>
+  </data>
+  <data name="SettingsPageLengthText" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="SettingsPageLesson2YearChk" xml:space="preserve">
+    <value>Missions from 2 y.o.</value>
+  </data>
+  <data name="SettingsPageLessonAfterChk" xml:space="preserve">
+    <value>Missions after train</value>
+  </data>
+  <data name="SettingsPageLimitsText" xml:space="preserve">
+    <value>Limits</value>
+  </data>
+  <data name="SettingsPageLoadBtn" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="SettingsPageMaleNameText" xml:space="preserve">
+    <value>Male name</value>
+  </data>
+  <data name="SettingsPageParallelPairChk" xml:space="preserve">
+    <value>Train both at the same time</value>
+  </data>
+  <data name="SettingsPagePausesChk" xml:space="preserve">
+    <value>Pauses</value>
+  </data>
+  <data name="SettingsPagePGPreffixText" xml:space="preserve">
+    <value>GP postfix</value>
+  </data>
+  <data name="SettingsPagePlacePGChk" xml:space="preserve">
+    <value>Add GP to name</value>
+  </data>
+  <data name="SettingsPageRandomNamesChk" xml:space="preserve">
+    <value>Random names</value>
+  </data>
+  <data name="SettingsPageReserveChk" xml:space="preserve">
+    <value>Reserved</value>
+  </data>
+  <data name="SettingsPageResetBtn" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SettingsPageSaveBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SettingsPageSchemeText" xml:space="preserve">
+    <value>Scheme</value>
+  </data>
+  <data name="SettingsPageSelfChk" xml:space="preserve">
+    <value>Own</value>
+  </data>
+  <data name="SettingsPageSpecializationText" xml:space="preserve">
+    <value>Speciality</value>
+  </data>
+  <data name="SettingsPageTooltip" xml:space="preserve">
+    <value>If you not sure, which symbols in your affix, copy affix from the game!</value>
+  </data>
+  <data name="SettingsPageTrainingText" xml:space="preserve">
+    <value>Training/Competition</value>
+  </data>
+  <data name="SettingsPageTrainingTypeText" xml:space="preserve">
+    <value>Training type</value>
+  </data>
+  <data name="SettingsPageWhipChk" xml:space="preserve">
+    <value>Whip</value>
+  </data>
+  <data name="SexFemale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="SexMale" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Shit" xml:space="preserve">
+    <value>Droppings</value>
+  </data>
+  <data name="SortAge" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="SortDate" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="SortName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SortPG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="SortRace" xml:space="preserve">
+    <value>Race</value>
+  </data>
+  <data name="SortSkills" xml:space="preserve">
+    <value>Skiils</value>
+  </data>
+  <data name="SpecializationClassic" xml:space="preserve">
+    <value>Classical</value>
+  </data>
+  <data name="SpecializationWestern" xml:space="preserve">
+    <value>Western</value>
+  </data>
+  <data name="StatusPageAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="StatusPageAmountHorsesText" xml:space="preserve">
+    <value>Amount of horses</value>
+  </data>
+  <data name="StatusPageAmunitionText" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
+  <data name="StatusPageBandagesText" xml:space="preserve">
+    <value>Wraps</value>
+  </data>
+  <data name="StatusPageBridleText" xml:space="preserve">
+    <value>Bridles</value>
+  </data>
+  <data name="StatusPageForeheadText" xml:space="preserve">
+    <value>Bonnets</value>
+  </data>
+  <data name="StatusPageLimitHealthText" xml:space="preserve">
+    <value>Health limit</value>
+  </data>
+  <data name="StatusPageLimitText" xml:space="preserve">
+    <value>Limit</value>
+  </data>
+  <data name="StatusPageRampText" xml:space="preserve">
+    <value>Saddle cloths</value>
+  </data>
+  <data name="StatusPageReturnBtn" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="StatusPageSadleText" xml:space="preserve">
+    <value>Saddles</value>
+  </data>
+  <data name="StatusPageSchemeText" xml:space="preserve">
+    <value>Scheme</value>
+  </data>
+  <data name="StatusPageSpecializationText" xml:space="preserve">
+    <value>Speciality</value>
+  </data>
+  <data name="Steel" xml:space="preserve">
+    <value>Steel</value>
+  </data>
+  <data name="Straw" xml:space="preserve">
+    <value>Straw</value>
+  </data>
+  <data name="TimeFewHours" xml:space="preserve">
+    <value>A few hours</value>
+  </data>
+  <data name="TimeMonth1" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="TimeMonth2" xml:space="preserve">
+    <value>months</value>
+  </data>
+  <data name="TimeMonth3" xml:space="preserve">
+    <value>months</value>
+  </data>
+  <data name="TimeYear1" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="TimeYear2" xml:space="preserve">
+    <value>years</value>
+  </data>
+  <data name="TimeYear3" xml:space="preserve">
+    <value>years</value>
+  </data>
+  <data name="TrainingClassicConcur" xml:space="preserve">
+    <value>Show jumping</value>
+  </data>
+  <data name="TrainingClassicCross" xml:space="preserve">
+    <value>Cross-country</value>
+  </data>
+  <data name="TrainingClassicDressage" xml:space="preserve">
+    <value>Dressage comp</value>
+  </data>
+  <data name="TrainingClassicGalop" xml:space="preserve">
+    <value>Gallop comp</value>
+  </data>
+  <data name="TrainingClassicLynx" xml:space="preserve">
+    <value>Trot comp</value>
+  </data>
+  <data name="TrainingDressage" xml:space="preserve">
+    <value>Dressage</value>
+  </data>
+  <data name="TrainingForest" xml:space="preserve">
+    <value>Forest</value>
+  </data>
+  <data name="TrainingGalop" xml:space="preserve">
+    <value>Gallop</value>
+  </data>
+  <data name="TrainingJump" xml:space="preserve">
+    <value>Jumping</value>
+  </data>
+  <data name="TrainingLynx" xml:space="preserve">
+    <value>Trot</value>
+  </data>
+  <data name="TrainingMountain" xml:space="preserve">
+    <value>Mountain</value>
+  </data>
+  <data name="TrainingSpeed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="TrainingVitality" xml:space="preserve">
+    <value>Stamina</value>
+  </data>
+  <data name="TrainingWesternBarell" xml:space="preserve">
+    <value>Barrel racing</value>
+  </data>
+  <data name="TrainingWesternCutting" xml:space="preserve">
+    <value>Cutting</value>
+  </data>
+  <data name="TrainingWesternPlege" xml:space="preserve">
+    <value>Western pleasure</value>
+  </data>
+  <data name="TrainingWesternRaining" xml:space="preserve">
+    <value>Reining</value>
+  </data>
+  <data name="TrainingWesternTrail" xml:space="preserve">
+    <value>Trail class</value>
+  </data>
+  <data name="TrainTypeTeam" xml:space="preserve">
+    <value>In team</value>
+  </data>
+  <data name="TrainTypeWithoutTeam" xml:space="preserve">
+    <value>Solo</value>
+  </data>
+  <data name="Wheat" xml:space="preserve">
+    <value>Wheat</value>
+  </data>
+  <data name="WindowErrorMessage1" xml:space="preserve">
+    <value>Error has occurred! Contact the administration! </value>
+  </data>
+  <data name="WindowErrorMessage2" xml:space="preserve">
+    <value>Unauthorized access attempt detected! </value>
+  </data>
+  <data name="WindowErrorMessage3" xml:space="preserve">
+    <value>Your subscription is not active or it's level is too low! </value>
+  </data>
+  <data name="WindowUpdateMessage1" xml:space="preserve">
+    <value>Update available </value>
+  </data>
+  <data name="WindowUpdateMessage2" xml:space="preserve">
+    <value>Run the launcher to update.</value>
+  </data>
+  <data name="Wood" xml:space="preserve">
+    <value>Wood</value>
+  </data>
+</root>

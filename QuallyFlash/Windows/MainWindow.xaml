@@ -1,0 +1,99 @@
+﻿<Window x:Class="QuallyFlash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuallyFlash"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow"
+        Height="720"
+        Width="800"
+        MinWidth="100"
+        MinHeight="150"
+        Closed="Window_Closed">
+    <Window.Resources>
+        <Style TargetType="{x:Type Frame}">
+            <Setter Property="RenderTransformOrigin" Value="0.5, 0"/>
+        </Style>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Border BorderThickness="3" BorderBrush="Black"
+                                        Background="#2f3136">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=24}"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Background="#202225" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
+                                        <Viewbox Width="20" Height="20">
+                                            <Canvas Width="24" Height="24">
+                                                <Path Data="M7,2V13H10V22L17,10H13L17,2H7Z" Fill="Yellow" />
+                                            </Canvas>
+                                        </Viewbox>
+                                    </Button>
+                                    <Button Cursor="Hand" Grid.Column="1" Style="{StaticResource SystemIconButton}" Command="{Binding ChangeLanguageCommand}">
+                                        <Image Width="20" Height="20" Source="{Binding FlagImage}"/>
+                                    </Button>
+                                    <TextBlock Grid.Column="2" Text="{Binding Logo}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                    <StackPanel Grid.Column="3 " Orientation="Horizontal">
+                                        <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Content="─"/>
+                                        <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Content="[ ]"/>
+                                        <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="X"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Border Grid.Row="2" Padding="1,1,0,1" ClipToBounds="True">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="GrowAndFadeIn" >
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1.2" To="1" Duration="0:0:.25" DecelerationRatio=".9" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1.2" To="1" Duration="0:0:.25" DecelerationRatio=".9" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+        </Storyboard>
+        <Storyboard x:Key="GrowAndFadeInAfter" >
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="0.8" To="1" Duration="0:0:.25" DecelerationRatio=".9" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="0.8" To="1" Duration="0:0:.25" DecelerationRatio=".9" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+        </Storyboard>
+        <Storyboard x:Key="GrowAndFadeOut">
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1" To="0.8" Duration="0:0:.25" AccelerationRatio=".9" />
+            <DoubleAnimation Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1" To="0.8" Duration="0:0:.25" AccelerationRatio=".9" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Opacity" From="1" To="0" />
+        </Storyboard>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="6"
+            CaptionHeight="24"
+            GlassFrameThickness="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden">
+            <Frame.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"
+									CenterX="{Binding RelativeSource={RelativeSource AncestorType=Grid, Mode=FindAncestor}, Path=ActualWidth}" 
+									CenterY="{Binding RelativeSource={RelativeSource AncestorType=Grid, Mode=FindAncestor}, Path=ActualHeight}" />
+                </TransformGroup>
+            </Frame.RenderTransform>
+        </Frame>
+    </Grid>
+</Window>
