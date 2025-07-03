@@ -658,22 +658,6 @@ namespace QuallyFlash
             await Client.PostAsync("/marche/achat", $"id={equipment.Id}&mode=eleveur&nombre={nombre}&typeRedirection=&idElement=");
         }
 
-        private void ClientSwitch()
-        {
-            if (Client is Client)
-            {
-                RequestClient requestClient = new RequestClient
-                {
-                    BaseAddress = (Client as Client).HttpClient.BaseAddress.OriginalString,
-                    CookieContainer = (Client as Client).Handler.CookieContainer,
-                    Proxy = (Client as Client).Handler.Proxy as WebProxy,
-                    Account = this,
-                };
-                requestClient.SetSID();
-                Client = requestClient;
-            }
-        }
-
         private void LogSettings()
         {
             logger.Info($"Настройки:\nИгра:{Settings.Game}\nМиссия после 2:{Settings.MissionAfter2}\nМиссия после трен.:{Settings.MissionAfterTrain}\nАборты:{Settings.Abortion}\nТип лимита:{Settings.LimitType}\nЛимит:{Settings.Limit}\nСлучки с:{Settings.HorsingEdge}\nЗдоровье:{Settings.HealthEdge}\nСпециализация:{Settings.Specialization}\nАмуниция:{Settings.Amunition}\nНалобник:{Settings.Headrest}\nБинты:{Settings.Bandages}\nХлыст:{Settings.Whip}\nТяжеловозы:{Settings.Heavy}\nСхема:{Settings.SchemeType}\nПараллельная пара:{Settings.ParallelPair}\nТип тренировки:{Settings.TrainType}\nКол-во случек:{Settings.HorsingNum}\nИмя м:{Settings.MaleName}\nИмя ж:{Settings.FemaleName}\nАффикс:{Settings.Affix}\nЗавод:{Settings.Farm}\nИмя скилла:{Settings.NameSkill}\nКск длительность:{Settings.Duration}\nКск резерв:{Settings.Reserve}\nСвой резерв:{Settings.SelfReserve}\nМорковь:{Settings.Carrot}\nСмесь:{Settings.Mash}\nСедла:{Settings.Saddle}\nУздечки:{Settings.Bridle}\nЛес:{Settings.Forest}\nГоры:{Settings.Mountain}\nПляж:{Settings.Beach}\nВальтрап:{Settings.Ramp}\nДуш:{Settings.Shower}\nПоилка:{Settings.Bowl}\nВыписывать:{Settings.WriteOut}\nПокупка еды:{Settings.BuyFood}\nПокупка глав.:{Settings.MainProductToSell}\nПокупка саб:{Settings.SubProductToSell}\nПокупка морковь/Смесь:{Settings.BuyCarrotMash}");
@@ -696,7 +680,6 @@ namespace QuallyFlash
             }
             LogSettings();
             Cts = new CancellationTokenSource();
-            ClientSwitch();
             Client.Ct = Cts.Token;
             IsWorking = true;
             HorsesCount = 0;
